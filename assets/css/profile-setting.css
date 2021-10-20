@@ -1,0 +1,180 @@
+.task-menu-item {
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.task-menu-active {
+    background: transparent;
+    color: #119Ae2;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 35px 0 0 #119Ae2;
+}
+
+details[open] summary~* {
+    animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details {
+    background-color: #F1F9FD;
+}
+
+details summary {
+    width: 100%;
+    padding: 0.5rem 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 300;
+    list-style: none;
+}
+
+details summary:after {
+    content: url('../../assets/images/arrow-wth-tail-down.svg');
+    position: absolute;
+    top: -15px;
+    right: -4px;
+    transform-origin: center;
+    transition: 200ms linear;
+}
+
+details summary {
+    outline: 0;
+}
+
+details p {
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+    padding-top: 1rem;
+}
+
+.switch-slider::before {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.switch-slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 25px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input.switch+.switch-slider::before {
+    background-color: #333;
+}
+
+input.switch:checked+.switch-slider::before {
+    transform: translateX(7px);
+    background-color: #fff;
+}
+
+input.switch:checked+.switch-slider {
+    background-color: #119ae2;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.time-input {
+    width: 160px;
+}
+
+.time-input::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-left: 1px solid #E5E5E5;
+    background-image: url('../../assets/images/time-icon.svg');
+    background-position: center center;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+}
+
+.close-check {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    top: -13px;
+    left: 47px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.close-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 2px solid #52575C;
+    border-radius: 4px;
+}
+
+.close-check:hover input~.checkmark {
+    background-color: #E5E5E5;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.close-check input:checked~.checkmark:after {
+    display: block;
+}
+
+.close-check .checkmark:after {
+    left: 7px;
+    top: -3px;
+    width: 8px;
+    height: 13px;
+    border: solid #52575C;
+    border-width: 0 2px 2px 0;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

@@ -1,0 +1,37 @@
+.refer-progress {
+    height: 5px;
+}
+
+.refer-progress::-webkit-progress-bar {
+    height: 5px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #e5e5e5;
+}
+
+.refer-progress::-webkit-progress-value {
+    display: inline-block;
+    float: left;
+    height: 5px;
+    padding-left: 30px;
+    background: var(--ubuy-blue);
+    border-radius: 100px;
+}
+
+.refer-joined {
+    left: -1px;
+}
+
+progress.refer-progress[value="0"] ~ .refer-joined .icon  {
+    background-color: #119AE2;
+} 
+
+progress.refer-progress[value="50"] ~ .refer-joined .icon,
+progress.refer-progress[value="50"] ~ .refer-posted-task .icon {
+    background-color: #119AE2;
+} 
+progress.refer-progress[value="100"] ~ .refer-joined .icon,
+progress.refer-progress[value="100"] ~ .refer-posted-task .icon,
+progress.refer-progress[value="100"] ~ .refer-completed-task .icon {
+    background-color: #119AE2;
+} 

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Working Hours</title>
+    <meta content="width=device-width" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="../../assets/styles/tailwind.css" rel="stylesheet">
+    <link href="../../assets/styles/global.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    <div class="flex min-h-screen w-full">
+        <header class="flex fixed top-0 w-full h-20 bg-white shadow-card z-20 p-4 items-center">
+            <a href="./index.html">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 19L5 12L12 5" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <div class="flex-auto text-center text-ubuy-black text-lg">Working Hours</div>
+        </header>
+
+        <main class="w-full h-full overflow-x-hidden">
+            <div class="flex flex-col items-center  justify-center px-4 bg-white w-full mt-36">
+                <div class="flex w-full justify-end">
+                    Closed ?
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Monday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-monday" id="start-time-monday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-monday" id="end-time-monday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-monday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-monday-closed" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Tuesday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-tuesday" id="start-time-tuesday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-tuesday" id="end-time-tuesday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-tuesday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-tuesday-closed" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Wednesday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-wednesday" id="start-time-wednesday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-wednesday" id="end-time-wednesday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-wednesday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-wednesday-closed" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Thursday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-thursday" id="start-time-thursday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-thursday" id="end-time-thursday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-thursday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-thursday-closed" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Friday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-friday" id="start-time-friday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-friday" id="end-time-friday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-friday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-friday-closed" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Saturday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-saturday" id="start-time-saturday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-saturday" id="end-time-saturday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input" />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-saturday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-saturday-closed" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row items-start w-full mt-5 justify-between">
+                    <div class="w-24 mr-2 mt-3 text-sm">
+                        Sunday
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <div class="flex flex-row items-center mb-4">
+                            <div class="w-8 text-tiny">From</div>
+                            <input value="12:00:00" type="time" name="start-time-sunday" id="start-time-sunday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input opacity-75" disabled />
+                        </div>
+                        <div class="flex flex-row items-center">
+                            <div class="w-8 text-tiny">Till</div>
+                            <input value="12:00" type="time" name="end-time-sunday" id="end-time-sunday" class="relative text-ubuy-secondary text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg time-input opacity-75" disabled />
+                        </div>
+                    </div>
+                    <div class="w-16 h-8 relative">
+                        <label for="is-sunday-closed" class="close-check" style="top: 0; left: 18px;">
+                            <input type="checkbox" class="hidden" id="is-sunday-closed" checked />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="mt-8 self-start px-4 pb-12">
+                <button class="text-sm text-white rounded-lg bg-ubuy-blue py-4 px-5 font-semibold shadow-card">
+                    Update
+                </button>
+            </div>
+    </div>
+    </main>
+
+
+    </div>
+
+    <script src="../../assets/js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

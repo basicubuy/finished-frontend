@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="../../../assets/styles/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
+</head>
+
+<body class="min-h-screen h-full">
+    <div class="flex flex-row max-w-5xl w-full mx-auto font-poppins shadow-card">
+        <section class="xl:w-1/2 xl:block hidden justify-center bg-no-repeat bg-left bg-cover" style="background-image: url('../../assets/images/black-sisters-holding-cleaning-stuff-and-smiling.jpeg');background-position: left center;">
+            <div class=" w-full p-8 grid h-full place-items-center" style="background-color: rgba(0, 0, 0, .3);">
+                <div class="flex flex-col items-center review-wrapper relative">
+                    <div class="flex flex-col justify-between bg-white review-item p-7 z-10 max-w-xs">
+                        <div>
+                            <img src="../../../assets/images/avatar-small-rounded.png" alt="" class=" w-10 rounded-full border-2 border-ubuy-blue" />
+                        </div>
+                        <div class="flex-grow text-2xl text-center my-12 text-ubuy-secondary font-medium italic">
+                            “I found a good electrician in less than five minutes”
+                        </div>
+                        <div class="flex flex-row justify-between items-center">
+                            <div class="text-2xl text-ubuy-black font-normal italic">Authur K.</div>
+                            <div>
+                                <svg width="100" height="16" viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="url(#paint0_linear)" />
+                                    <path d="M32.0654 9.79511L33.995 16L28.9871 12.1402L24.0043 16L25.9339 9.79511L21 6.00935H27.1316L28.9878 0L30.8684 6.00935H37L32.0654 9.79511Z" fill="url(#paint1_linear)" />
+                                    <path d="M53.0654 9.79511L54.995 16L49.9871 12.1402L45.0043 16L46.9339 9.79511L42 6.00935H48.1316L49.9878 0L51.8684 6.00935H58L53.0654 9.79511Z" fill="url(#paint2_linear)" />
+                                    <path
+                                        d="M73.7611 9.39841L73.4844 9.61064L73.588 9.94358L75.0481 14.6389L71.2923 11.7442L70.9863 11.5083L70.6809 11.7449L66.9532 14.6325L68.4113 9.94358L68.5148 9.61067L68.2382 9.39843L64.473 6.50935H69.1316H69.5004L69.6093 6.15691L70.9909 1.68406L72.3913 6.15868L72.501 6.50935H72.8684H77.5268L73.7611 9.39841Z"
+                                        stroke="#CACCCF" />
+                                    <path
+                                        d="M94.7611 9.39841L94.4844 9.61064L94.588 9.94358L96.0481 14.6389L92.2923 11.7442L91.9863 11.5083L91.6809 11.7449L87.9532 14.6325L89.4113 9.94358L89.5148 9.61067L89.2382 9.39843L85.473 6.50935H90.1316H90.5004L90.6093 6.15691L91.9909 1.68406L93.3913 6.15868L93.501 6.50935H93.8684H98.5268L94.7611 9.39841Z"
+                                        stroke="#CACCCF" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear" x1="8" y1="0" x2="8" y2="16" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FFDD00" />
+                                            <stop offset="1" stop-color="#FBB034" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear" x1="29" y1="0" x2="29" y2="16" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FFDD00" />
+                                            <stop offset="1" stop-color="#FBB034" />
+                                        </linearGradient>
+                                        <linearGradient id="paint2_linear" x1="50" y1="0" x2="50" y2="16" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FFDD00" />
+                                            <stop offset="1" stop-color="#FBB034" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row items-center self-end px-3 mt-5 gap-x-2">
+                        <div class="bg-ubuy-gray600 rounded-full w-2 h-2"></div>
+                        <div class="bg-white rounded-full w-3 h-3"></div>
+                        <div class="bg-ubuy-gray600 rounded-full w-2 h-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="xl:w-1/2 w-full bg-white flex-auto sm:p-14 p-5">
+            <div class="w-full flex flex-col items-center mx-auto" style="max-width: 500px;">
+                <div class="text-ubuy-black font-medium ">
+                    <img class="mx-auto sm:mb-10 mb-5" src="../../assets/images/logo.png" alt="logo">
+                    <h1 class="sm:text-5xl text-lg mb-7 text-center">Create an Account</h1>
+
+                </div>
+                <div class="w-full mb-4">
+                    <p class="sm:text-lg text-sm text-center mb-2.5 text-ubuy-secondary">What are you here for ?</p>
+                    <div class="flex flex-row w-full rounded-llg border border-ubuy-gray200">
+                        <button id="toggle-customer-form" onclick="switchForm('customer')" class="focus:outline-none w-1/2 py-4 px-5 rounded-l-llg active">
+                            Find professionals
+                        </button>
+                        <button id="toggle-pro-form" onclick="switchForm('pro')" class="focus:outline-none w-1/2 py-4 px-5 rounded-r-llg inactive">
+                            Register as a PRO
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="flex-col w-full items-center mx-auto flex" id="customer-form">
+                    <form action="" class="w-full flex flex-col gap-y-4">
+                        <label for="phone" id="phone-label" class="w-full relative">
+                            <input type="tel" name="phone" id="phone" placeholder="Phone Number" class="rounded-llg border border-ubuy-gray200 bg-ubuy-gray400 px-7 py-4 focus:outline-none text-base w-full" required/>
+                        </label>
+
+                        <label for="email" id="email-label" class="w-full relative">
+                            <input type="email" name="email" id="email" placeholder="Email" class="rounded-llg border border-ubuy-gray200 bg-ubuy-gray400 px-7 py-4 focus:outline-none text-base w-full" required/>
+                        </label>
+                        <label for="password" id="password-label" class="w-full relative">
+                            <input type="password" name="password" id="password" placeholder="Password" class="rounded-llg border border-ubuy-gray200 bg-ubuy-gray400 px-7 py-4 focus:outline-none text-base w-full" required/>
+                        </label>
+                        <div class="flex flex-row items-center">
+                            <input type="checkbox" name="agree-terms" id="agree-terms" class="w-5 h-5 bg-ubuy-blue mr-5" required/>
+                            <div class="font-medium text-base text-ubuy-black">
+                                <span>I agree to the</span>
+                                <a href="/" class="text-ubuy-blue font-bold">Terms & Conditions</a>
+                                <span>and</span>
+                                <a href="/" class="text-ubuy-blue font-bold">Privacy Policy</a>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-ubuy-blue rounded-llg py-4 text-lg text-white font-semibold mt-6 focus:outline-none">Sign In</button>
+                    </form>
+                    <div class="flex flex-col gap-y-4 mt-10 w-full">
+                        <button class="w-full rounded-llg relative flex items-center justify-center google-btn text-ubuy-secondary focus:outline-none">
+                            <span class="absolute left-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.625 12C5.625 10.811 5.95261 9.69706 6.52177 8.74329V4.69761H2.47608C0.870375 6.78298 0 9.3245 0 12C0 14.6756 0.870375 17.2171 2.47608 19.3025H6.52177V15.2568C5.95261 14.303 5.625 13.1891 5.625 12Z" fill="#FBBD00" />
+                                    <path d="M12 18.3751L9.1875 21.1876L12 24.0001C14.6756 24.0001 17.217 23.1297 19.3024 21.524V17.4826H15.261C14.2989 18.0538 13.1804 18.3751 12 18.3751Z" fill="#0F9D58" />
+                                    <path d="M6.52176 15.2567L2.47607 19.3024C2.79398 19.7152 3.14015 20.1106 3.51473 20.4853C5.78123 22.7517 8.79468 23.9999 12 23.9999V18.3749C9.67387 18.3749 7.63514 17.1224 6.52176 15.2567Z" fill="#31AA52" />
+                                    <path d="M24 12C24 11.27 23.9339 10.5385 23.8035 9.82611L23.698 9.24959H12V14.8746H17.6931C17.1402 15.9743 16.2902 16.8716 15.261 17.4826L19.3024 21.524C19.7153 21.2061 20.1106 20.8599 20.4853 20.4853C22.7518 18.2188 24 15.2053 24 12Z" fill="#3C79E6" />
+                                    <path d="M16.5078 7.49217L17.005 7.98933L20.9825 4.01189L20.4853 3.51473C18.2188 1.24823 15.2054 0 12 0L9.1875 2.8125L12 5.625C13.7028 5.625 15.3037 6.28809 16.5078 7.49217Z" fill="#CF2D48" />
+                                    <path d="M12 5.625V0C8.79473 0 5.78128 1.24823 3.51473 3.51469C3.14015 3.88927 2.79398 4.28466 2.47607 4.69758L6.52176 8.74327C7.63518 6.8775 9.67392 5.625 12 5.625Z" fill="#EB4132" />
+                                </svg>
+                            </span>
+                            <span>Sign in with Google</span>
+                        </button>
+                        <button class="w-full rounded-llg relative flex items-center justify-center facebook-btn text-ubuy-secondary focus:outline-none">
+                            <span class="absolute left-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                        <path
+                                            d="M17.9988 0.00503175L14.8866 3.8147e-05C11.3901 3.8147e-05 9.13054 2.31832 9.13054 5.90647V8.62973H6.00133C5.73093 8.62973 5.51196 8.84895 5.51196 9.11935V13.065C5.51196 13.3355 5.73118 13.5544 6.00133 13.5544H9.13054V23.5107C9.13054 23.7811 9.34951 24 9.61991 24H13.7026C13.973 24 14.192 23.7808 14.192 23.5107V13.5544H17.8508C18.1212 13.5544 18.3401 13.3355 18.3401 13.065L18.3416 9.11935C18.3416 8.98952 18.29 8.86518 18.1983 8.7733C18.1067 8.68141 17.9819 8.62973 17.852 8.62973H14.192V6.32119C14.192 5.21161 14.4564 4.64833 15.9018 4.64833L17.9983 4.64758C18.2685 4.64758 18.4875 4.42836 18.4875 4.15821V0.494405C18.4875 0.224501 18.2687 0.00553111 17.9988 0.00503175Z"
+                                            fill="#2F80ED" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                            <span>
+                                Sign in with Facebook
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden flex-col w-full items-center mx-auto" id="pro-form">
+                    <form action="" class="w-full flex flex-col gap-y-4">
+                        <label for="phone" id="phone-label" class="w-full relative">
+                            <input type="tel" name="phone" id="phone" placeholder="Phone Number" class="rounded-llg border border-ubuy-gray200 bg-ubuy-gray400 px-7 py-4 focus:outline-none text-base w-full"  required/>
+                        </label>
+
+                        <label for="email" id="email-label" class="w-full relative">
+                            <input type="email" name="email" id="email" placeholder="Email" class="rounded-llg border border-ubuy-gray200 bg-ubuy-gray400 px-7 py-4 focus:outline-none text-base w-full"  required/>
+                        </label>
+                        <label for="password" id="password-label" class="w-full relative">
+                            <input type="password" name="password" id="password" placeholder="Password" class="rounded-llg border border-ubuy-gray200 bg-ubuy-gray400 px-7 py-4 focus:outline-none text-base w-full"  required/>
+                        </label>
+                        <div class="flex flex-row items-center">
+                            <input type="checkbox" name="agree-terms" id="agree-terms" class="w-5 h-5 bg-ubuy-blue mr-5" required/>
+                            <div class="font-medium text-base text-ubuy-black">
+                                <span>I agree to the</span>
+                                <a href="/" class="text-ubuy-blue font-bold">Terms & Conditions</a>
+                                <span>and</span>
+                                <a href="/" class="text-ubuy-blue font-bold">Privacy Policy</a>
+                            </div>
+                        </div>
+                        
+                            <button type="submit" class="w-full bg-ubuy-blue rounded-llg py-4 text-lg text-white font-semibold mt-6 focus:outline-none">Continue</button>
+        
+                    </form>
+                    <div class="flex flex-col gap-y-4 mt-10 w-full">
+                        <!-- Temp for routing Demo -->
+                        <a href="./complete-signup.html">
+                        <button class="w-full rounded-llg relative flex items-center justify-center google-btn text-ubuy-secondary focus:outline-none">
+                            <span class="absolute left-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.625 12C5.625 10.811 5.95261 9.69706 6.52177 8.74329V4.69761H2.47608C0.870375 6.78298 0 9.3245 0 12C0 14.6756 0.870375 17.2171 2.47608 19.3025H6.52177V15.2568C5.95261 14.303 5.625 13.1891 5.625 12Z" fill="#FBBD00" />
+                                    <path d="M12 18.3751L9.1875 21.1876L12 24.0001C14.6756 24.0001 17.217 23.1297 19.3024 21.524V17.4826H15.261C14.2989 18.0538 13.1804 18.3751 12 18.3751Z" fill="#0F9D58" />
+                                    <path d="M6.52176 15.2567L2.47607 19.3024C2.79398 19.7152 3.14015 20.1106 3.51473 20.4853C5.78123 22.7517 8.79468 23.9999 12 23.9999V18.3749C9.67387 18.3749 7.63514 17.1224 6.52176 15.2567Z" fill="#31AA52" />
+                                    <path d="M24 12C24 11.27 23.9339 10.5385 23.8035 9.82611L23.698 9.24959H12V14.8746H17.6931C17.1402 15.9743 16.2902 16.8716 15.261 17.4826L19.3024 21.524C19.7153 21.2061 20.1106 20.8599 20.4853 20.4853C22.7518 18.2188 24 15.2053 24 12Z" fill="#3C79E6" />
+                                    <path d="M16.5078 7.49217L17.005 7.98933L20.9825 4.01189L20.4853 3.51473C18.2188 1.24823 15.2054 0 12 0L9.1875 2.8125L12 5.625C13.7028 5.625 15.3037 6.28809 16.5078 7.49217Z" fill="#CF2D48" />
+                                    <path d="M12 5.625V0C8.79473 0 5.78128 1.24823 3.51473 3.51469C3.14015 3.88927 2.79398 4.28466 2.47607 4.69758L6.52176 8.74327C7.63518 6.8775 9.67392 5.625 12 5.625Z" fill="#EB4132" />
+                                </svg>
+                            </span>
+                            <span>Sign in with Google</span>
+                        </button>
+                    </a>
+                        <button class="w-full rounded-llg relative flex items-center justify-center facebook-btn text-ubuy-secondary focus:outline-none">
+                            <span class="absolute left-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                        <path
+                                            d="M17.9988 0.00503175L14.8866 3.8147e-05C11.3901 3.8147e-05 9.13054 2.31832 9.13054 5.90647V8.62973H6.00133C5.73093 8.62973 5.51196 8.84895 5.51196 9.11935V13.065C5.51196 13.3355 5.73118 13.5544 6.00133 13.5544H9.13054V23.5107C9.13054 23.7811 9.34951 24 9.61991 24H13.7026C13.973 24 14.192 23.7808 14.192 23.5107V13.5544H17.8508C18.1212 13.5544 18.3401 13.3355 18.3401 13.065L18.3416 9.11935C18.3416 8.98952 18.29 8.86518 18.1983 8.7733C18.1067 8.68141 17.9819 8.62973 17.852 8.62973H14.192V6.32119C14.192 5.21161 14.4564 4.64833 15.9018 4.64833L17.9983 4.64758C18.2685 4.64758 18.4875 4.42836 18.4875 4.15821V0.494405C18.4875 0.224501 18.2687 0.00553111 17.9988 0.00503175Z"
+                                            fill="#2F80ED" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                            <span>
+                                Sign in with Facebook
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <span>Already have an account?</span>
+                    <a href="../login/index.html" class="text-ubuy-blue">Login</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+.max-w-350 {
+    max-width: 354px;
+    height: 150px;
+    min-width: 264px;
+}
+
+.active-task-icon-wrapper {
+    background-color: #f6a70931;
+}
+
+.task-inprogress-icon-wrapper {
+    background-color: rgba(86, 204, 242, 0.3);
+}
+
+.completed-task-icon-wrapper {
+    background-color: rgba(64, 221, 127, .3);
+}
+
+.archieved-task-icon-wrapper {
+    background-color: rgba(160, 164, 168, .3);
+}
+
+.task-progress-wrapper svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: rgba(17, 154, 226, 0.1);
+    stroke-width: 29;
+    stroke-linecap: round;
+    transform: translate(35px, 35px);
+}
+
+svg circle:nth-child(2) {
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+
+.task-progress-wrapper svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * var(--progress)) / 100);
+    stroke: currentColor;
+}
+
+.rate label:nth-child(2n) {
+    margin-right: 15px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 0.8em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 50px;
+    color: rgb(216, 210, 210);
+}
+
+.rate:not(:checked)>label:before {
+    content: '★';
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rate>input:checked~label {
+    color: #FBB034;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #FBB034;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #FBB034;
+}
+
+
+/* Submenu task card */
+
+#task-card-floating-menu:hover #task-card-floating-dropdown {
+    display: flex;
+}
+
+.milestone-timeline {
+    position: relative;
+    margin: 0 auto;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+
+.milestone-timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #C4C4C4;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    height: 100%;
+    left: 10px;
+    margin-left: -3px;
+}
+
+
+/* Container around content */
+
+.milestone-timeline-content-wrapper {
+    padding: 10px 0;
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+}
+
+
+/* The circles on the timeline */
+
+.milestone-timeline-content-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -16px;
+    background: radial-gradient(currentColor 40%, transparent 42%);
+    top: 50%;
+    transform: translateY(-50%);
+    left: -3px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+/* The actual content */
+
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+
+/* Full-width containers */
+
+.milestone-timeline-content-wrapper {
+    width: 100%;
+    padding-left: 40px;
+}
+
+.milestone-timeline-content-wrapper.completed {
+    color: #119Ae2;
+}
+
+.milestone-timeline-content-wrapper.completed p::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: block;
+    right: 25px;
+    top: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23D0F9CF' fill-opacity='0.5'/%3E%3Cpath d='M21.6668 10L12.5002 19.1667L8.3335 15' stroke='%232AC769' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+details[open] summary~* {
+    animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary {
+    /* width: 100%; */
+    padding: 0.5rem 0;
+    position: relative;
+    cursor: pointer;
+    font-weight: 300;
+    list-style: none;
+}
+
+details summary:after {
+    content: url('../../assets/images/up.png');
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: center;
+    transition: 100ms linear;
+}
+
+details[open] summary:after {
+    transform: rotate(180deg);
+}
+
+details summary {
+    outline: 0;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    background-color: #C4C4C4;
+    height: 100%;
+    bottom: 0;
+    z-index: -1;
+    height: 100%;
+    left: 150px;
+}
+
+
+/* The circles on the timeline */
+
+.timeline-date::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -16px;
+    background: radial-gradient(currentColor 40%, transparent 42%);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 138px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+@media(min-width: 524px) {
+    .timeline::after {
+        left: 170px;
+    }
+    .timeline-date::after {
+        left: 158px;
+    }
+    .timeline-date {
+        font-size: 13px;
+    }
+}
+
+
+/* Container around content */
+
+.timeline-content-wrapper {
+    position: relative;
+    background-color: inherit;
+    width: 100%;
+}
+
+
+/* The actual content */
+
+.content {
+    padding: 10px 15px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+.timeline-date.completed::after {
+    color: #119Ae2;
+}
+
+.timeline-content-wrapper.completed p::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: block;
+    right: 25px;
+    top: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23D0F9CF' fill-opacity='0.5'/%3E%3Cpath d='M21.6668 10L12.5002 19.1667L8.3335 15' stroke='%232AC769' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}

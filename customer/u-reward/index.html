@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>U-Reward Customer</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="../../assets/styles/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/styles/global.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="flex min-h-screen w-full">
+
+        <!-- Header-->
+        <header class="fixed top-0 left-0 w-full h-24 z-20 bg-white">
+            <div>
+                <div class=" h-24 flex flex-row sm:justify-between items-center dashboard-header relative">
+                    <button class="md:hidden m-0 appearance-none focus:outline-none self-center ml-4 mr-3 p-3" id="nav-toggle-open" onclick="onSidebarOpen()">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 16H28" stroke="#52575C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4 8H28" stroke="#52575C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4 24H28" stroke="#52575C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="flex-auto sm:hidden flex justify-center items-center">
+                        <img alt="ubuy-logo" class="w-24 h-auto" src="../../assets/images/ubuy-logo.png" />
+                    </div>
+                    <div class="sm:flex-auto justify-end items-center">
+                        <div class="h-24 flex flex-row items-center justify-end gap-x-5 pr-8">
+                            <div class="hidden sm:flex items-center justify-between">
+                                <hr class="transform rotate-90 w-8 text-ubuy-gray-200" />
+                                <button class="mr-5">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M17.2929 16.7071L18.5858 18H5.41421L6.70711 16.7071L7 16.4142V16V11C7 8.26874 8.41437 6.20184 10.7306 5.65306L11.5 5.47075V4.68V4C11.5 3.72228 11.7223 3.5 12 3.5C12.2777 3.5 12.5 3.72228 12.5 4V4.68V5.47011L13.2687 5.65288C15.5762 6.20153 17 8.27963 17 11V16V16.4142L17.2929 16.7071Z"
+                                            fill="white" stroke="#52575C" stroke-width="2" />
+                                        <circle cx="17" cy="6" r="4.5" fill="#FB4E4E" stroke="white" />
+                                    </svg>
+                                </button>
+                                <button>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
+                                            stroke="#52575C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Profile dropdown -->
+                            <div class="relative" id="profile-dropdown">
+                                <button class="flex items-center focus:outline-none">
+                                    <img class="avatar rounded-full" src="../../assets/images/avatar.png" alt="avatar">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 9L12 15L18 9" stroke="#222F54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <div id="dropdown" class="text-sm flex flex-col gap-y-3.5 px-6 py-3.5 bg-white absolute -right-1.5 w-60 rounded-lg text-ubuy-gray-500">
+                                    <button class="flex items-center h-10 focus:outline-none">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.4 15C19.2669 15.3016 19.2272 15.6362 19.286 15.9606C19.3448 16.285 19.4995 16.5843 19.73 16.82L19.79 16.88C19.976 17.0657 20.1235 17.2863 20.2241 17.5291C20.3248 17.7719 20.3766 18.0322 20.3766 18.295C20.3766 18.5578 20.3248 18.8181 20.2241 19.0609C20.1235 19.3037 19.976 19.5243 19.79 19.71C19.6043 19.896 19.3837 20.0435 19.1409 20.1441C18.8981 20.2448 18.6378 20.2966 18.375 20.2966C18.1122 20.2966 17.8519 20.2448 17.6091 20.1441C17.3663 20.0435 17.1457 19.896 16.96 19.71L16.9 19.65C16.6643 19.4195 16.365 19.2648 16.0406 19.206C15.7162 19.1472 15.3816 19.1869 15.08 19.32C14.7842 19.4468 14.532 19.6572 14.3543 19.9255C14.1766 20.1938 14.0813 20.5082 14.08 20.83V21C14.08 21.5304 13.8693 22.0391 13.4942 22.4142C13.1191 22.7893 12.6104 23 12.08 23C11.5496 23 11.0409 22.7893 10.6658 22.4142C10.2907 22.0391 10.08 21.5304 10.08 21V20.91C10.0723 20.579 9.96512 20.258 9.77251 19.9887C9.5799 19.7194 9.31074 19.5143 9 19.4C8.69838 19.2669 8.36381 19.2272 8.03941 19.286C7.71502 19.3448 7.41568 19.4995 7.18 19.73L7.12 19.79C6.93425 19.976 6.71368 20.1235 6.47088 20.2241C6.22808 20.3248 5.96783 20.3766 5.705 20.3766C5.44217 20.3766 5.18192 20.3248 4.93912 20.2241C4.69632 20.1235 4.47575 19.976 4.29 19.79C4.10405 19.6043 3.95653 19.3837 3.85588 19.1409C3.75523 18.8981 3.70343 18.6378 3.70343 18.375C3.70343 18.1122 3.75523 17.8519 3.85588 17.6091C3.95653 17.3663 4.10405 17.1457 4.29 16.96L4.35 16.9C4.58054 16.6643 4.73519 16.365 4.794 16.0406C4.85282 15.7162 4.81312 15.3816 4.68 15.08C4.55324 14.7842 4.34276 14.532 4.07447 14.3543C3.80618 14.1766 3.49179 14.0813 3.17 14.08H3C2.46957 14.08 1.96086 13.8693 1.58579 13.4942C1.21071 13.1191 1 12.6104 1 12.08C1 11.5496 1.21071 11.0409 1.58579 10.6658C1.96086 10.2907 2.46957 10.08 3 10.08H3.09C3.42099 10.0723 3.742 9.96512 4.0113 9.77251C4.28059 9.5799 4.48572 9.31074 4.6 9C4.73312 8.69838 4.77282 8.36381 4.714 8.03941C4.65519 7.71502 4.50054 7.41568 4.27 7.18L4.21 7.12C4.02405 6.93425 3.87653 6.71368 3.77588 6.47088C3.67523 6.22808 3.62343 5.96783 3.62343 5.705C3.62343 5.44217 3.67523 5.18192 3.77588 4.93912C3.87653 4.69632 4.02405 4.47575 4.21 4.29C4.39575 4.10405 4.61632 3.95653 4.85912 3.85588C5.10192 3.75523 5.36217 3.70343 5.625 3.70343C5.88783 3.70343 6.14808 3.75523 6.39088 3.85588C6.63368 3.95653 6.85425 4.10405 7.04 4.29L7.1 4.35C7.33568 4.58054 7.63502 4.73519 7.95941 4.794C8.28381 4.85282 8.61838 4.81312 8.92 4.68H9C9.29577 4.55324 9.54802 4.34276 9.72569 4.07447C9.90337 3.80618 9.99872 3.49179 10 3.17V3C10 2.46957 10.2107 1.96086 10.5858 1.58579C10.9609 1.21071 11.4696 1 12 1C12.5304 1 13.0391 1.21071 13.4142 1.58579C13.7893 1.96086 14 2.46957 14 3V3.09C14.0013 3.41179 14.0966 3.72618 14.2743 3.99447C14.452 4.26276 14.7042 4.47324 15 4.6C15.3016 4.73312 15.6362 4.77282 15.9606 4.714C16.285 4.65519 16.5843 4.50054 16.82 4.27L16.88 4.21C17.0657 4.02405 17.2863 3.87653 17.5291 3.77588C17.7719 3.67523 18.0322 3.62343 18.295 3.62343C18.5578 3.62343 18.8181 3.67523 19.0609 3.77588C19.3037 3.87653 19.5243 4.02405 19.71 4.21C19.896 4.39575 20.0435 4.61632 20.1441 4.85912C20.2448 5.10192 20.2966 5.36217 20.2966 5.625C20.2966 5.88783 20.2448 6.14808 20.1441 6.39088C20.0435 6.63368 19.896 6.85425 19.71 7.04L19.65 7.1C19.4195 7.33568 19.2648 7.63502 19.206 7.95941C19.1472 8.28381 19.1869 8.61838 19.32 8.92V9C19.4468 9.29577 19.6572 9.54802 19.9255 9.72569C20.1938 9.90337 20.5082 9.99872 20.83 10H21C21.5304 10 22.0391 10.2107 22.4142 10.5858C22.7893 10.9609 23 11.4696 23 12C23 12.5304 22.7893 13.0391 22.4142 13.4142C22.0391 13.7893 21.5304 14 21 14H20.91C20.5882 14.0013 20.2738 14.0966 20.0055 14.2743C19.7372 14.452 19.5268 14.7042 19.4 15V15Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <span class="ml-2.5">Account Settings</span>
+                                    </button>
+                                    <button class="flex items-center h-10 focus:outline-none">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M20.1776 18.8412C20.1911 18.7319 20.2001 18.6181 20.2001 18.5C20.2001 18.3819 20.1911 18.2681 20.1731 18.1588L20.9336 17.5812C21.0011 17.5287 21.0191 17.4325 20.9786 17.3581L20.2586 16.1463C20.2136 16.0675 20.1191 16.0412 20.0381 16.0675L19.1425 16.4175C18.9535 16.2775 18.7555 16.1638 18.535 16.0763L18.4 15.1487C18.3865 15.0612 18.31 15 18.22 15H16.78C16.69 15 16.618 15.0612 16.6045 15.1487L16.4695 16.0763C16.249 16.1638 16.0465 16.2819 15.862 16.4175L14.9664 16.0675C14.8854 16.0369 14.7909 16.0675 14.7459 16.1463L14.0259 17.3581C13.9809 17.4369 13.9989 17.5287 14.0709 17.5812L14.8314 18.1588C14.8134 18.2681 14.7999 18.3863 14.7999 18.5C14.7999 18.6137 14.8089 18.7319 14.8269 18.8412L14.0664 19.4188C13.9989 19.4713 13.9809 19.5675 14.0214 19.6419L14.7414 20.8538C14.7864 20.9325 14.8809 20.9588 14.9619 20.9325L15.8575 20.5825C16.0465 20.7225 16.2445 20.8362 16.465 20.9237L16.6 21.8512C16.618 21.9387 16.69 22 16.78 22H18.22C18.31 22 18.3865 21.9387 18.3955 21.8512L18.5305 20.9237C18.751 20.8362 18.9535 20.7181 19.138 20.5825L20.0336 20.9325C20.1146 20.9631 20.2091 20.9325 20.2541 20.8538L20.9741 19.6419C21.0191 19.5631 21.0011 19.4713 20.9291 19.4188L20.1776 18.8412ZM17.5 19.8125C16.7575 19.8125 16.15 19.2219 16.15 18.5C16.15 17.7781 16.7575 17.1875 17.5 17.1875C18.2425 17.1875 18.85 17.7781 18.85 18.5C18.85 19.2219 18.2425 19.8125 17.5 19.8125Z"
+                                                fill="#707683" />
+                                        </svg>
+                                        <span class="ml-2.5">Support</span>
+                                    </button>
+                                    <button class="flex items-center h-10 focus:outline-none">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17 1L21 5L17 9" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M3 11V9C3 7.93913 3.42143 6.92172 4.17157 6.17157C4.92172 5.42143 5.93913 5 7 5H21" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M7 23L3 19L7 15" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M21 13V15C21 16.0609 20.5786 17.0783 19.8284 17.8284C19.0783 18.5786 18.0609 19 17 19H3" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <span class="ml-2.5">Switch to Pro</span>
+                                    </button>
+                                    <button class="flex items-center h-10 focus:outline-none">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="#FF6262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16 17L21 12L16 7" stroke="#FF6262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M21 12H9" stroke="#FF6262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <span class="ml-2.5 text-ubuy-negativeDefault">Logout</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Profile dropdown End -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Sidebar -->
+        <aside class="sidebar-container md:w-full min-h-screen w-0 opacity-0 hidden md:block md:opacity-100 fixed z-50 bg-white transition" id="sidebar">
+            <div class=" w-full flex absolute top-4 justify-between items-center md:hidden">
+                <div class="flex-auto flex items-center justify-center">
+                    <img alt="ubuy-logo" class="w-24 h-auto" src="../../assets/images/ubuy-logo.png" />
+                </div>
+
+                <button id="nav-toggle-close" onclick="onSidebarClose()" class="flex items-center pr-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 6L18 18" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="flex flex-col p-2.5 font-medium">
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../dashboard/index.html">
+                        <div class="mr-4">
+                            <svg width="24" fill="none" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="currentColor" d="M18.8265 3H4.21782C3.06522 3 2.13086 3.89543 2.13086 5V19C2.13086 20.1046 3.06522 21 4.21782 21H18.8265C19.9791 21 20.9135 20.1046 20.9135 19V5C20.9135 3.89543 19.9791 3 18.8265 3Z" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <path stroke="currentColor" d="M2.13086 9H20.9135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path stroke="currentColor" d="M8.3916 21V9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span>
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../tasks/index.html">
+                        <div class="mr-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="currentColor" d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <path stroke="currentColor" d="M16 7V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <path stroke="currentColor" d="M2 12H21.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <span>
+                            Tasks
+                        </span>
+                    </a>
+                </li>
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../messages/index.html">
+                        <div class="mr-4">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke="currentColor"
+                                    d="M19 13C19 13.5304 18.7893 14.0391 18.4142 14.4142C18.0391 14.7893 17.5304 15 17 15H5L1 19V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V13Z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <span>
+                            Messages
+                        </span>
+                    </a>
+
+                </li>
+
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../upay/index.html">
+                        <div class="mr-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11 15H7C6.45 15 6 14.55 6 14C6 13.45 6.45 13 7 13H11C11.55 13 12 13.45 12 14C12 14.55 11.55 15 11 15ZM17 15H15C14.45 15 14 14.55 14 14C14 13.45 14.45 13 15 13H17C17.55 13 18 13.45 18 14C18 14.55 17.55 15 17 15ZM20 16C20 16.551 19.552 17 19 17H5C4.448 17 4 16.551 4 16V11H20V16ZM4 8C4 7.449 4.448 7 5 7H19C19.552 7 20 7.449 20 8V9H4V8ZM19 5H5C3.346 5 2 6.346 2 8V16C2 17.654 3.346 19 5 19H19C20.654 19 22 17.654 22 16V8C22 6.346 20.654 5 19 5Z"
+                                    fill="currentColor" />
+                                <mask id="mask0" x="2" y="5" width="20" height="14">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11 15H7C6.45 15 6 14.55 6 14C6 13.45 6.45 13 7 13H11C11.55 13 12 13.45 12 14C12 14.55 11.55 15 11 15ZM17 15H15C14.45 15 14 14.55 14 14C14 13.45 14.45 13 15 13H17C17.55 13 18 13.45 18 14C18 14.55 17.55 15 17 15ZM20 16C20 16.551 19.552 17 19 17H5C4.448 17 4 16.551 4 16V11H20V16ZM4 8C4 7.449 4.448 7 5 7H19C19.552 7 20 7.449 20 8V9H4V8ZM19 5H5C3.346 5 2 6.346 2 8V16C2 17.654 3.346 19 5 19H19C20.654 19 22 17.654 22 16V8C22 6.346 20.654 5 19 5Z"
+                                        fill="white" />
+                                </mask>
+                                <g mask="url(#mask0)"></g>
+                            </svg>
+
+                        </div>
+                        <span>UPay</span>
+                    </a>
+
+                </li>
+
+                <li class="rounded">
+                    <a href="../favorite-pros/index.html" class="flex flex-row items-center py-2.5 px-3">
+                        <div class="mr-4">
+                            <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.8401 3.60987C20.3294 3.09888 19.7229 2.69352 19.0555 2.41696C18.388 2.14039 17.6726 1.99805 16.9501 1.99805C16.2276 1.99805 15.5122 2.14039 14.8448 2.41696C14.1773 2.69352 13.5709 3.09888 13.0601 3.60987L12.0001 4.66987L10.9401 3.60987C9.90843 2.57818 8.50915 1.99858 7.05012 1.99858C5.59109 1.99858 4.19181 2.57818 3.16012 3.60987C2.12843 4.64156 1.54883 6.04084 1.54883 7.49987C1.54883 8.95891 2.12843 10.3582 3.16012 11.3899L4.22012 12.4499L12.0001 20.2299L19.7801 12.4499L20.8401 11.3899C21.3511 10.8791 21.7565 10.2727 22.033 9.60523C22.3096 8.93777 22.4519 8.22236 22.4519 7.49987C22.4519 6.77738 22.3096 6.06198 22.033 5.39452C21.7565 4.72706 21.3511 4.12063 20.8401 3.60987V3.60987Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+                        <span>Favorite Pros</span>
+                    </a>
+
+                </li>
+
+
+                <li class="rounded menu-active">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../u-reward/index.html">
+                        <div class="mr-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <path d="M8.21 13.8899L7 22.9999L12 19.9999L17 22.9999L15.79 13.8799" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <span>U-Reward</span>
+                    </a>
+                </li>
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../u-refer-earn/index.html">
+                        <div class="mr-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 12V22H4V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M22 7H2V12H22V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 22V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span>
+                            Refer and Earn
+                        </span>
+                    </a>
+                </li>
+
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../dispute-resolution/index.html">
+                        <div class="mr-4">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.9948 20.0847L12.0857 20.7053L12.684 20.8936C13.0193 20.9991 13.2819 21.2468 13.4046 21.5603H1.07593C1.19892 21.2466 1.46196 20.9986 1.79578 20.8937L2.39374 20.7058L2.48529 20.0858C2.53594 19.7427 2.82628 19.4897 3.16729 19.4897H11.312C11.6552 19.4897 11.9449 19.7441 11.9948 20.0847Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path
+                                    d="M13.5541 10.0973L13.2856 10.8769L13.2918 10.8805L12.7979 11.4199C12.7768 11.443 12.7597 11.4634 12.7481 11.4775C12.7417 11.4853 12.7358 11.4927 12.731 11.4987L11.3332 12.9416L11.3332 12.9416L11.3278 12.9472C11.2307 13.049 11.0312 13.1471 10.7951 13.1471C10.6528 13.1471 10.5391 13.1121 10.4595 13.0658L10.4572 13.0645L7.89473 11.5849L7.89341 11.5842C7.63967 11.4382 7.48204 11.0492 7.56325 10.766L7.56349 10.7651L8.12669 8.7943L8.1269 8.79357C8.24841 8.36716 8.62739 7.71082 8.93709 7.39099L8.93785 7.39021L10.362 5.91625L10.3632 5.91508C10.4295 5.84625 10.5746 5.76172 10.7822 5.73239C10.9893 5.70311 11.1531 5.74377 11.2384 5.79308L11.2385 5.79311L13.801 7.27437L13.8022 7.27508C14.0569 7.42184 14.214 7.81146 14.1331 8.09263L14.1326 8.09439L13.5796 10.0294C13.5768 10.0364 13.5735 10.0448 13.5699 10.0543C13.5653 10.066 13.5599 10.0806 13.5541 10.0973ZM17.9386 13.8635L17.8555 13.4759L18.2364 13.3518C18.3609 13.3113 18.4879 13.3231 18.5961 13.3854C18.5962 13.3854 18.5962 13.3854 18.5963 13.3855L22.7767 15.7991L22.7772 15.7994C22.9891 15.9216 23.0641 16.195 22.9396 16.4111L22.9389 16.4124C22.858 16.5531 22.7098 16.635 22.5514 16.635C22.4768 16.635 22.4007 16.6164 22.3272 16.5741C22.3272 16.5741 22.3272 16.5741 22.3271 16.574L18.1475 14.1611L18.1456 14.16C18.0425 14.1008 17.9675 13.9986 17.9386 13.8635ZM13.5913 10.0011L13.591 10.002C13.5922 9.99916 13.5928 9.99768 13.5924 9.99866L13.5913 10.0011ZM14.5129 10.3895C14.52 10.3725 14.5271 10.3554 14.5309 10.34L19.0956 12.519C18.726 12.3061 18.3029 12.2785 17.9267 12.401L14.4996 10.423C14.5033 10.4122 14.5081 10.4009 14.5129 10.3895Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path
+                                    d="M10.3998 2.48313C10.1334 2.94513 10.2919 3.53501 10.7538 3.80134L15.7702 6.69843C15.9213 6.78606 16.0872 6.82749 16.2514 6.82749C16.5849 6.82749 16.9095 6.65416 17.0882 6.34447C17.3547 5.88187 17.1961 5.29273 16.7343 5.02536L11.718 2.12902C11.2571 1.86359 10.6672 2.02037 10.3998 2.48313Z"
+                                    fill="currentColor" />
+                                <path
+                                    d="M4.96109 13.8343L9.97642 16.7305C10.1293 16.8182 10.2954 16.8596 10.4594 16.8596C10.793 16.8596 11.1165 16.6863 11.2963 16.3766C11.5627 15.9147 11.4042 15.3257 10.9423 15.0584L5.92609 12.1622C5.46513 11.8948 4.87346 12.0534 4.60699 12.5152C4.34066 12.9771 4.49819 13.5679 4.96109 13.8343Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                        <span>
+                            Dispute Resolution
+                        </span>
+                    </a>
+                </li>
+
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../profile-settings/index.html">
+                        <div class="mr-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <path
+                                    d="M19.4 15C19.2669 15.3016 19.2272 15.6362 19.286 15.9606C19.3448 16.285 19.4995 16.5843 19.73 16.82L19.79 16.88C19.976 17.0657 20.1235 17.2863 20.2241 17.5291C20.3248 17.7719 20.3766 18.0322 20.3766 18.295C20.3766 18.5578 20.3248 18.8181 20.2241 19.0609C20.1235 19.3037 19.976 19.5243 19.79 19.71C19.6043 19.896 19.3837 20.0435 19.1409 20.1441C18.8981 20.2448 18.6378 20.2966 18.375 20.2966C18.1122 20.2966 17.8519 20.2448 17.6091 20.1441C17.3663 20.0435 17.1457 19.896 16.96 19.71L16.9 19.65C16.6643 19.4195 16.365 19.2648 16.0406 19.206C15.7162 19.1472 15.3816 19.1869 15.08 19.32C14.7842 19.4468 14.532 19.6572 14.3543 19.9255C14.1766 20.1938 14.0813 20.5082 14.08 20.83V21C14.08 21.5304 13.8693 22.0391 13.4942 22.4142C13.1191 22.7893 12.6104 23 12.08 23C11.5496 23 11.0409 22.7893 10.6658 22.4142C10.2907 22.0391 10.08 21.5304 10.08 21V20.91C10.0723 20.579 9.96512 20.258 9.77251 19.9887C9.5799 19.7194 9.31074 19.5143 9 19.4C8.69838 19.2669 8.36381 19.2272 8.03941 19.286C7.71502 19.3448 7.41568 19.4995 7.18 19.73L7.12 19.79C6.93425 19.976 6.71368 20.1235 6.47088 20.2241C6.22808 20.3248 5.96783 20.3766 5.705 20.3766C5.44217 20.3766 5.18192 20.3248 4.93912 20.2241C4.69632 20.1235 4.47575 19.976 4.29 19.79C4.10405 19.6043 3.95653 19.3837 3.85588 19.1409C3.75523 18.8981 3.70343 18.6378 3.70343 18.375C3.70343 18.1122 3.75523 17.8519 3.85588 17.6091C3.95653 17.3663 4.10405 17.1457 4.29 16.96L4.35 16.9C4.58054 16.6643 4.73519 16.365 4.794 16.0406C4.85282 15.7162 4.81312 15.3816 4.68 15.08C4.55324 14.7842 4.34276 14.532 4.07447 14.3543C3.80618 14.1766 3.49179 14.0813 3.17 14.08H3C2.46957 14.08 1.96086 13.8693 1.58579 13.4942C1.21071 13.1191 1 12.6104 1 12.08C1 11.5496 1.21071 11.0409 1.58579 10.6658C1.96086 10.2907 2.46957 10.08 3 10.08H3.09C3.42099 10.0723 3.742 9.96512 4.0113 9.77251C4.28059 9.5799 4.48572 9.31074 4.6 9C4.73312 8.69838 4.77282 8.36381 4.714 8.03941C4.65519 7.71502 4.50054 7.41568 4.27 7.18L4.21 7.12C4.02405 6.93425 3.87653 6.71368 3.77588 6.47088C3.67523 6.22808 3.62343 5.96783 3.62343 5.705C3.62343 5.44217 3.67523 5.18192 3.77588 4.93912C3.87653 4.69632 4.02405 4.47575 4.21 4.29C4.39575 4.10405 4.61632 3.95653 4.85912 3.85588C5.10192 3.75523 5.36217 3.70343 5.625 3.70343C5.88783 3.70343 6.14808 3.75523 6.39088 3.85588C6.63368 3.95653 6.85425 4.10405 7.04 4.29L7.1 4.35C7.33568 4.58054 7.63502 4.73519 7.95941 4.794C8.28381 4.85282 8.61838 4.81312 8.92 4.68H9C9.29577 4.55324 9.54802 4.34276 9.72569 4.07447C9.90337 3.80618 9.99872 3.49179 10 3.17V3C10 2.46957 10.2107 1.96086 10.5858 1.58579C10.9609 1.21071 11.4696 1 12 1C12.5304 1 13.0391 1.21071 13.4142 1.58579C13.7893 1.96086 14 2.46957 14 3V3.09C14.0013 3.41179 14.0966 3.72618 14.2743 3.99447C14.452 4.26276 14.7042 4.47324 15 4.6C15.3016 4.73312 15.6362 4.77282 15.9606 4.714C16.285 4.65519 16.5843 4.50054 16.82 4.27L16.88 4.21C17.0657 4.02405 17.2863 3.87653 17.5291 3.77588C17.7719 3.67523 18.0322 3.62343 18.295 3.62343C18.5578 3.62343 18.8181 3.67523 19.0609 3.77588C19.3037 3.87653 19.5243 4.02405 19.71 4.21C19.896 4.39575 20.0435 4.61632 20.1441 4.85912C20.2448 5.10192 20.2966 5.36217 20.2966 5.625C20.2966 5.88783 20.2448 6.14808 20.1441 6.39088C20.0435 6.63368 19.896 6.85425 19.71 7.04L19.65 7.1C19.4195 7.33568 19.2648 7.63502 19.206 7.95941C19.1472 8.28381 19.1869 8.61838 19.32 8.92V9C19.4468 9.29577 19.6572 9.54802 19.9255 9.72569C20.1938 9.90337 20.5082 9.99872 20.83 10H21C21.5304 10 22.0391 10.2107 22.4142 10.5858C22.7893 10.9609 23 11.4696 23 12C23 12.5304 22.7893 13.0391 22.4142 13.4142C22.0391 13.7893 21.5304 14 21 14H20.91C20.5882 14.0013 20.2738 14.0966 20.0055 14.2743C19.7372 14.452 19.5268 14.7042 19.4 15V15Z"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+
+                        </div>
+                        <span>
+                            Profile Settings
+                        </span>
+
+                    </a>
+                </li>
+
+                <li class="rounded">
+                    <a class="flex flex-row items-center py-2.5 px-3" href="../dashboard/index.html">
+                        <div class="mr-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 1L21 5L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 11V9C3 7.93913 3.42143 6.92172 4.17157 6.17157C4.92172 5.42143 5.93913 5 7 5H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <path d="M7 23L3 19L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21 13V15C21 16.0609 20.5786 17.0783 19.8284 17.8284C19.0783 18.5786 18.0609 19 17 19H3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+
+                        </div>
+                        <span>
+                            Switch to Pro
+                        </span>
+
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mt-16 flex flex-row items-center justify-center w-full">
+                <button class="flex flex-row items-center bg-ubuy-blue text-white rounded-lg px-7 py-3">
+                    <span class="mr-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            <path d="M16 7V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V7" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            <path d="M12 11V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9 14H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <span class="text-sm">Submit Task</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <main class="flex-1 overflow-auto pt-24 flex items-stretch md:pl-64 pl-0 max-w-full">
+            <div class="relative min-w-0 max-w-full w-full bg-ubuy-gray-400 h-full">
+                <div class="my-0 mx-auto w-full lg:pl-6 py-6 lg:pr-8 px-4 flex flex-col gap-y-5">
+                    <div class="flex flex-row flex-nowrap gap-x-6 justify-center">
+                        <div class="hidden sm:flex flex-row items-center shadow-card sm:w-2/3 w-full bg-white px-9 py-5 mb-5 sm:mb-0 rounded-lg">
+                            <div class="w-7/12">
+                                <h1 class="text-lg lg:text-2xl font-semibold">Convert UReward Points to Gift and Discount Coupons</h1>
+                            </div>
+                            <div class="w-5/12">
+                                <img alt="welcome" class="min-w-full h-auto" src="../../assets/images/big-sale.png">
+                            </div>
+                        </div>
+                        <div class="rounded-llg flex-1 md:shadow-card bg-white w-full flex-col items-center justify-center p-5 flex border hover:border-ubuy-yellow200">
+                            <div class="flex flex-row items-center">
+                                <div class="rounded-full active-task-icon-wrapper p-4">
+                                    <svg width="48" height="64" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M30.2034 18.3594L17.6074 21.6785L29.139 64.0006L29.1397 64.0004L33.1271 53.8782L41.7349 60.6815L41.735 60.6815L30.2034 18.3594Z" fill="#E93C3C" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0495 18.3594L30.6455 21.6785L19.1139 64.0006L19.1084 63.9991L15.1215 53.8782L6.51903 60.6774L18.0495 18.3594Z" fill="#E93C3C" />
+                                        <path
+                                            d="M22.1896 2.88032C22.9654 1.57952 24.8493 1.57952 25.6251 2.88032L25.6702 2.95602C26.3099 4.02863 27.7652 4.25913 28.7051 3.43669L28.7714 3.37865C29.9111 2.38123 31.7029 2.96341 32.0387 4.44026L32.0582 4.52621C32.3352 5.74399 33.6481 6.41294 34.796 5.92117L34.877 5.88646C36.2692 5.29007 37.7934 6.39743 37.6564 7.90578L37.6484 7.99356C37.5354 9.2373 38.5774 10.2792 39.8211 10.1663L39.9089 10.1583C41.4172 10.0213 42.5246 11.5454 41.9282 12.9376L41.8935 13.0187C41.4017 14.1666 42.0707 15.4795 43.2885 15.7564L43.3744 15.776C44.8513 16.1118 45.4334 17.9035 44.436 19.0433L44.378 19.1096C43.5555 20.0494 43.786 21.5048 44.8587 22.1445L44.9344 22.1896C46.2352 22.9654 46.2352 24.8493 44.9344 25.6251L44.8587 25.6702C43.786 26.3099 43.5555 27.7652 44.378 28.7051L44.436 28.7714C45.4334 29.9111 44.8513 31.7029 43.3744 32.0387L43.2885 32.0582C42.0707 32.3352 41.4017 33.6481 41.8935 34.796L41.9282 34.877C42.5246 36.2692 41.4172 37.7934 39.9089 37.6564L39.8211 37.6484C38.5774 37.5354 37.5354 38.5774 37.6484 39.8211L37.6564 39.9089C37.7934 41.4172 36.2692 42.5246 34.877 41.9282L34.796 41.8935C33.648 41.4017 32.3352 42.0707 32.0582 43.2885L32.0387 43.3744C31.7029 44.8513 29.9111 45.4334 28.7714 44.436L28.705 44.378C27.7652 43.5555 26.3099 43.786 25.6702 44.8587L25.6251 44.9344C24.8493 46.2352 22.9654 46.2352 22.1896 44.9344L22.1445 44.8587C21.5048 43.786 20.0494 43.5555 19.1096 44.378L19.0433 44.436C17.9035 45.4334 16.1118 44.8513 15.776 43.3744L15.7564 43.2885C15.4795 42.0707 14.1666 41.4017 13.0187 41.8935L12.9376 41.9282C11.5454 42.5246 10.0213 41.4172 10.1583 39.9089L10.1663 39.8211C10.2792 38.5774 9.2373 37.5354 7.99356 37.6484L7.90578 37.6564C6.39743 37.7934 5.29007 36.2692 5.88646 34.877L5.92117 34.796C6.41294 33.648 5.74399 32.3352 4.52621 32.0582L4.44026 32.0387C2.96341 31.7029 2.38123 29.9111 3.37865 28.7714L3.43669 28.7051C4.25913 27.7652 4.02863 26.3099 2.95602 25.6702L2.88032 25.6251C1.57952 24.8493 1.57952 22.9654 2.88032 22.1896L2.95602 22.1445C4.02863 21.5048 4.25913 20.0494 3.43669 19.1096L3.37865 19.0433C2.38123 17.9035 2.96341 16.1118 4.44026 15.776L4.52621 15.7564C5.74399 15.4795 6.41294 14.1666 5.92117 13.0187L5.88646 12.9376C5.29007 11.5454 6.39743 10.0213 7.90578 10.1583L7.99356 10.1663C9.2373 10.2792 10.2792 9.2373 10.1663 7.99356L10.1583 7.90578C10.0213 6.39743 11.5454 5.29007 12.9376 5.88646L13.0187 5.92117C14.1666 6.41294 15.4795 5.74399 15.7564 4.52621L15.776 4.44026C16.1118 2.96341 17.9035 2.38123 19.0433 3.37865L19.1096 3.43669C20.0494 4.25913 21.5048 4.02863 22.1445 2.95602L22.1896 2.88032Z"
+                                            fill="#F1B974" />
+                                        <circle cx="23.7653" cy="23.7674" r="16.3005" fill="#D08230" />
+                                        <path d="M23.4669 14.933L25.3828 20.8294H31.5826L26.5668 24.4736L28.4827 30.37L23.4669 26.7258L18.4512 30.37L20.367 24.4736L15.3512 20.8294H21.5511L23.4669 14.933Z" fill="white" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col flex-auto lg:items-start items-center justify-start gap-y-3 text-left w-full">
+                                    <span class="text-lg lg:text-3xl text-ubuy-warningDefault font-medium">2533</span>
+                                    <span class="text-ubuy-secondary text-sm font-normal">UReward Points Available</span>
+                                </div>
+
+                            </div>
+
+                            <div class="sm:hidden block text-sm text-center text-ubuy-secondary">
+                                Convert UReward Points to Gift and Discount Coupons
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:flex hidden flex-row justify-between items-center text-sm text-ubuy-secondary mt-5">
+                    
+                        <div class="flex flex-row  justify-between w-full items-center gap-x-5">
+
+                            <div class="bg-white rounded-llg py-3 px-5 flex flex-row gap-1 items-center">
+                                <label>Showing:</label>
+                                <select class="bg-transparent">
+                                    <option class="" value="" selected>
+                                        My Coupon Wallet
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="flex flex-row items-center gap-x-4">
+                                <div class="bg-white rounded-llg py-3 px-5 flex flex-row items-center">
+                                    <label for="filter-pros" class="flex flex-row">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.1554 0H0.84473C0.0952696 0 -0.282906 0.909351 0.248129 1.44039L6.74999 7.94324V15.1875C6.74999 15.4628 6.88433 15.7208 7.10989 15.8787L9.92239 17.8468C10.4773 18.2352 11.25 17.8415 11.25 17.1555V7.94324L17.752 1.44039C18.282 0.910406 17.9064 0 17.1554 0Z"
+                                                fill="#52575C" />
+                                        </svg>
+                                        <span class="ml-3 sm:inline hidden">Filter</span>
+                                    </label>
+                                    <select name="filter-pro" id="filter-pro" class="bg-transparent appearance-none">
+                                        <option value=""></option>
+                                    </select>
+
+                                </div>
+                                <div class="bg-white rounded-llg py-3 px-5 flex flex-row items-center sm:w-52">
+                                    <label for="sort-by" class="flex flex-row items-center mr-2 relative w-full">
+                                        <div class="absolute flex flex-row">
+                                            <span>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M1.69285 6.40258L4.97345 3.18822C5.22971 2.93722 5.64541 2.9373 5.90151 3.18822L9.18198 6.40258C9.59501 6.80718 9.30088 7.50002 8.71793 7.50002H6.75V20.3571C6.75 20.7122 6.4562 21 6.09375 21H4.78125C4.41879 21 4.125 20.7122 4.125 20.3571V7.50002H2.1569C1.5728 7.50002 1.28069 6.80637 1.69285 6.40258ZM11.3437 5.57145H21.8438C22.2062 5.57145 22.5 5.28365 22.5 4.92859V3.64288C22.5 3.28782 22.2062 3.00002 21.8438 3.00002H11.3437C10.9813 3.00002 10.6875 3.28782 10.6875 3.64288V4.92859C10.6875 5.28365 10.9813 5.57145 11.3437 5.57145ZM10.6875 10.0714V8.78573C10.6875 8.43067 10.9813 8.14287 11.3437 8.14287H19.2188C19.5812 8.14287 19.875 8.43067 19.875 8.78573V10.0714C19.875 10.4265 19.5812 10.7143 19.2188 10.7143H11.3437C10.9813 10.7143 10.6875 10.4265 10.6875 10.0714ZM10.6875 20.3571V19.0714C10.6875 18.7164 10.9813 18.4286 11.3437 18.4286H13.9687C14.3312 18.4286 14.625 18.7164 14.625 19.0714V20.3571C14.625 20.7122 14.3312 21 13.9687 21H11.3437C10.9813 21 10.6875 20.7122 10.6875 20.3571ZM10.6875 15.2143V13.9286C10.6875 13.5735 10.9813 13.2857 11.3437 13.2857H16.5937C16.9562 13.2857 17.25 13.5735 17.25 13.9286V15.2143C17.25 15.5693 16.9562 15.8571 16.5937 15.8571H11.3437C10.9813 15.8571 10.6875 15.5693 10.6875 15.2143Z"
+                                                        fill="#222F54" />
+                                                </svg>
+                                            </span>
+                                            <span class="hidden sm:inline whitespace-nowrap mt-1">
+                                                Sort by: Recent
+                                            </span>
+                                        </div>
+
+                                        <select name="sort-by" id="sort-by" class="bg-transparent text-ubuy-black appearance-none w-full">
+                                            <option value=""></option>
+                                        </select>
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="sm:hidden flex text-xs items-center">
+                        <label for="" class="mr-5">Showing:</label>
+                        <select name="fliter-reward" id="filter-reward" class="rounded bg-white px-2 py-1">
+                            <option value="" selected>My Coupon Wallet</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-flow-row xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+                        <!-- Coupon Store Locked-->
+                        <div class="rounded-llg bg-ubuy-blue flex flex-col p-0 relative items-center gap-x-4 w-full">
+                            <div class="flex-auto text-2xl text-white flex items-center justify-center py-11">15% off entire task fee</div>
+
+                            <div class="bg-white flex items-center w-full self-end rounded-b-lg p-5 -mb-1 ">
+                                <div>
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.1" width="30" height="30" rx="15" fill="#119AE2" />
+                                        <path d="M19.6667 14.3333H10.3333C9.59695 14.3333 9 14.9303 9 15.6667V20.3333C9 21.0697 9.59695 21.6667 10.3333 21.6667H19.6667C20.403 21.6667 21 21.0697 21 20.3333V15.6667C21 14.9303 20.403 14.3333 19.6667 14.3333Z" stroke="#119AE2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M11.6665 14.3333V11.6667C11.6665 10.7826 12.0177 9.93478 12.6428 9.30965C13.2679 8.68453 14.1158 8.33334 14.9998 8.33334C15.8839 8.33334 16.7317 8.68453 17.3569 9.30965C17.982 9.93478 18.3332 10.7826 18.3332 11.6667V14.3333" stroke="#119AE2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col items-start justify-start flex-auto ml-3">
+                                    <span class="text-tiny text-ubuy-blue">Locked Redeem at 700 points</span>
+                                    <progress value="5" max="100" class="coupon-progress w-full mt-2"></progress>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Coupon Store Locked End-->
+                        <!-- Coupon Store unlocked-->
+                        <div class="rounded-llg bg-ubuy-blue flex flex-col p-0 relative items-center gap-x-4 w-full">
+                            <div class="flex-auto text-2xl text-white flex items-center justify-center py-11">15% off entire task fee</div>
+                            <div class="bg-white flex items-center w-full self-end rounded-b-lg p-5 -mb-1 ">
+                                <div>
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.1" width="30" height="30" rx="15" fill="#119AE2" />
+                                        <path d="M19.6667 14.3333H10.3333C9.59695 14.3333 9 14.9303 9 15.6667V20.3333C9 21.0697 9.59695 21.6667 10.3333 21.6667H19.6667C20.403 21.6667 21 21.0697 21 20.3333V15.6667C21 14.9303 20.403 14.3333 19.6667 14.3333Z" stroke="#119AE2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M11.6665 14.3333V11.6667C11.6665 10.7826 12.0177 9.93478 12.6428 9.30965C13.2679 8.68453 14.1158 8.33334 14.9998 8.33334C15.8839 8.33334 16.7317 8.68453 17.3569 9.30965C17.982 9.93478 18.3332 10.7826 18.3332 11.6667V14.3333" stroke="#119AE2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col items-start justify-start flex-auto ml-3">
+                                    <span class="text-tiny text-ubuy-blue">Coupon Unlocked</span>
+                                </div>
+                                <button class="rounded-llg border-2 border-ubuy-blue text-ubuy-blue font-semibold text-tiny py-2 px-3">Redeem for 200</button>
+                            </div>
+                        </div>
+                        <!-- Coupon Store unlocked End-->
+                        <!-- Coupon Store Locked-->
+                        <div class="rounded-llg bg-ubuy-blue flex flex-col p-0 relative items-center gap-x-4 w-full">
+                            <div class="flex-auto text-2xl text-white flex items-center justify-center py-11">15% off entire task fee</div>
+
+                            <div class="bg-white flex items-center w-full self-end rounded-b-lg p-5 -mb-1 ">
+                                <div>
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.1" width="30" height="30" rx="15" fill="#119AE2" />
+                                        <path d="M19.6667 14.3333H10.3333C9.59695 14.3333 9 14.9303 9 15.6667V20.3333C9 21.0697 9.59695 21.6667 10.3333 21.6667H19.6667C20.403 21.6667 21 21.0697 21 20.3333V15.6667C21 14.9303 20.403 14.3333 19.6667 14.3333Z" stroke="#119AE2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M11.6665 14.3333V11.6667C11.6665 10.7826 12.0177 9.93478 12.6428 9.30965C13.2679 8.68453 14.1158 8.33334 14.9998 8.33334C15.8839 8.33334 16.7317 8.68453 17.3569 9.30965C17.982 9.93478 18.3332 10.7826 18.3332 11.6667V14.3333" stroke="#119AE2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col items-start justify-start flex-auto ml-3">
+                                    <span class="text-tiny text-ubuy-blue">Locked Redeem at 700point</span>
+                                    <progress value="50" max="100" class="coupon-progress w-full mt-2"></progress>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Coupon Store Locked End-->
+
+                        <div class="bg-white rounded-llg px-4 py-5 relative flex flex-row items-center gap-x-4 w-full">
+                            <div class="">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M119.969 0H107.999C107.999 3.31363 105.313 5.99983 101.999 5.99983C98.6857 5.99983 95.9994 3.31363 95.9993 0H84.0003C84.0002 3.31363 81.314 5.99983 78.0003 5.99983C74.6867 5.99983 72.0004 3.31363 72.0003 0H59.9997C59.9996 3.31363 57.3133 5.99983 53.9997 5.99983C50.686 5.99983 47.9998 3.31363 47.9997 0H36.0007C36.0006 3.31363 33.3143 5.99983 30.0007 5.99983C26.687 5.99983 24.0008 3.31363 24.0007 0H12C11.9999 3.31359 9.31362 5.99973 6 5.99973C2.68638 5.99973 0.000143999 3.31359 0 0V11.9998H0.00121689C2.65219 11.9998 4.80122 14.6861 4.80122 17.9998C4.80122 21.3135 2.65219 23.9998 0.00121689 23.9998H0V36.0001H0.00121689C2.65219 36.0001 4.80122 38.6864 4.80122 42.0001C4.80122 45.3138 2.65219 48.0001 0.00121689 48.0001H0V59.9999H0.00121689C2.65219 59.9999 4.80122 62.6862 4.80122 65.9999C4.80122 69.3136 2.65219 71.9999 0.00121689 71.9999H0V84.0002H0.00121689C2.65219 84.0002 4.80122 86.6865 4.80122 90.0002C4.80122 93.3139 2.65219 96.0002 0.00121689 96.0002H0V108H0.00116806C2.65214 108 4.80117 110.686 4.80117 114C4.80117 117.314 2.65214 120 0.00116806 120H12.0003C12.0003 116.686 14.6866 114 18.0003 114C21.314 114 24.0003 116.686 24.0003 120H35.9997C35.9997 116.686 38.686 114 41.9997 114C45.3134 114 47.9997 116.686 47.9997 120H60.0003C60.0003 116.686 62.6866 114 66.0003 114C69.314 114 72.0003 116.686 72.0003 120H84.001C84.001 116.686 86.6873 114 90.001 114C93.3147 114 96.001 116.686 96.001 120H108C108 116.686 110.686 114 114 114C117.314 114 120 116.686 120 120V108C116.687 108 114.001 105.313 114.001 102C114.001 98.6865 116.687 96.0004 120 96V83.9998C116.687 83.9995 114.001 81.3133 114.001 77.9998C114.001 74.6863 116.687 72.0002 120 71.9998V60C116.687 59.9996 114.001 57.3135 114.001 54C114.001 50.6865 116.687 48.0004 120 48V36.0002C116.687 35.9998 114.001 33.3137 114.001 30.0002C114.001 26.6867 116.687 24.0005 120 24.0002V11.9999C116.687 11.9996 114.001 9.3134 114.001 5.99992C114.001 2.69691 116.67 0.0172673 119.969 0Z"
+                                        fill="#F9F9FA" />
+                                    <rect x="15" y="15" width="90" height="90" rx="5" fill="#1F4D65" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M67.145 54.9327L54.1553 58.3555L66.0469 101.999L70.1585 91.5612L79.0359 98.5776L66.0472 102L66.0473 102L79.037 98.5775L67.145 54.9327Z" fill="#E93C3C" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M54.6148 54.9327L67.6045 58.3555L55.7125 102L55.7099 102L51.5979 91.5612L42.7234 98.5754L54.6148 54.9327Z" fill="#E93C3C" />
+                                    <path
+                                        d="M58.9358 38.8803C59.7116 37.5795 61.5955 37.5795 62.3713 38.8803L62.51 39.1128C63.1496 40.1854 64.605 40.4159 65.5448 39.5935L65.7485 39.4152C66.8883 38.4178 68.68 39 69.0158 40.4768L69.0759 40.7408C69.3528 41.9586 70.6657 42.6275 71.8136 42.1358L72.0625 42.0292C73.4547 41.4328 74.9788 42.5401 74.8418 44.0485L74.8173 44.3181C74.7044 45.5618 75.7463 46.6037 76.99 46.4908L77.2596 46.4663C78.768 46.3293 79.8753 47.8535 79.2789 49.2457L79.1723 49.4945C78.6806 50.6425 79.3495 51.9553 80.5673 52.2323L80.8313 52.2923C82.3081 52.6281 82.8903 54.4198 81.8929 55.5596L81.7146 55.7633C80.8922 56.7031 81.1227 58.1585 82.1953 58.7982L82.4278 58.9368C83.7286 59.7126 83.7286 61.5965 82.4278 62.3723L82.1953 62.5109C81.1227 63.1506 80.8922 64.606 81.7146 65.5458L81.8929 65.7495C82.8903 66.8892 82.3081 68.681 80.8313 69.0168L80.5673 69.0768C79.3495 69.3537 78.6806 70.6666 79.1723 71.8146L79.2789 72.0634C79.8753 73.4556 78.768 74.9798 77.2596 74.8428L76.99 74.8183C75.7463 74.7053 74.7044 75.7473 74.8173 76.991L74.8418 77.2606C74.9788 78.769 73.4547 79.8763 72.0625 79.2799L71.8136 79.1733C70.6657 78.6816 69.3528 79.3505 69.0759 80.5683L69.0158 80.8323C68.68 82.3091 66.8883 82.8913 65.7485 81.8939L65.5448 81.7156C64.605 80.8932 63.1496 81.1237 62.51 82.1963L62.3713 82.4288C61.5955 83.7296 59.7116 83.7296 58.9358 82.4288L58.7972 82.1963C58.1575 81.1237 56.7022 80.8932 55.7623 81.7156L55.5586 81.8939C54.4189 82.8913 52.6271 82.3091 52.2913 80.8323L52.2313 80.5683C51.9544 79.3505 50.6415 78.6816 49.4935 79.1733L49.2447 79.2799C47.8525 79.8763 46.3283 78.769 46.4653 77.2606L46.4898 76.991C46.6028 75.7473 45.5608 74.7053 44.3171 74.8183L44.0475 74.8428C42.5392 74.9798 41.4318 73.4556 42.0282 72.0634L42.1348 71.8146C42.6266 70.6666 41.9576 69.3537 40.7398 69.0768L40.4759 69.0168C38.999 68.681 38.4168 66.8892 39.4142 65.7495L39.5925 65.5458C40.415 64.606 40.1844 63.1506 39.1118 62.5109L38.8793 62.3723C37.5785 61.5965 37.5785 59.7126 38.8793 58.9368L39.1118 58.7982C40.1845 58.1585 40.415 56.7031 39.5925 55.7633L39.4142 55.5596C38.4168 54.4198 38.999 52.6281 40.4759 52.2923L40.7398 52.2323C41.9576 51.9553 42.6266 50.6425 42.1348 49.4945L42.0282 49.2456C41.4318 47.8535 42.5392 46.3293 44.0475 46.4663L44.3171 46.4908C45.5609 46.6037 46.6028 45.5618 46.4898 44.3181L46.4653 44.0485C46.3283 42.5401 47.8525 41.4328 49.2447 42.0292L49.4935 42.1358C50.6415 42.6275 51.9544 41.9586 52.2313 40.7408L52.2913 40.4768C52.6271 39 54.4189 38.4178 55.5586 39.4152L55.7623 39.5935C56.7022 40.4159 58.1575 40.1854 58.7972 39.1128L58.9358 38.8803Z"
+                                        fill="#F1B974" />
+                                    <circle cx="60.5091" cy="60.5101" r="16.8099" fill="#D08230" />
+                                    <path d="M59.999 52L62.0196 58.2188H68.5585L63.2685 62.0623L65.2891 68.2812L59.999 64.4377L54.709 68.2812L56.7296 62.0623L51.4395 58.2188H57.9784L59.999 52Z" fill="#F9F9FA" />
+                                    <circle cx="34.5" cy="25.5" r="1.5" fill="#F1B974" />
+                                    <circle cx="59.999" cy="31.5" r="1.5" fill="#F1B974" />
+                                    <circle cx="82.499" cy="28.5" r="1.5" fill="#F1B974" />
+                                    <circle cx="94.5" cy="45" r="1.5" fill="#F1B974" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-sm text-ubuy-secondary mb-2">
+                                    10% off your next task
+                                </div>
+                                <div class="text-xs text-ubuy-inactive mb-2">
+                                    Sign Up Reward Coupon
+                                </div>
+                                <div>
+                                    <div class="border-2 border-dotted rounded p-1 border-ubuy-blue flex items-center justify-start w-min">
+                                        <span class="text-sm text-ubuy-blue mr-2">
+                                            INUB15
+                                        </span>
+                                        <button>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#119AE2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M3.33301 10H2.66634C2.31272 10 1.97358 9.85953 1.72353 9.60949C1.47348 9.35944 1.33301 9.0203 1.33301 8.66668V2.66668C1.33301 2.31305 1.47348 1.97392 1.72353 1.72387C1.97358 1.47382 2.31272 1.33334 2.66634 1.33334H8.66634C9.01996 1.33334 9.3591 1.47382 9.60915 1.72387C9.8592 1.97392 9.99967 2.31305 9.99967 2.66668V3.33334"
+                                                    stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute right-4 bottom-4 text-tiny text-ubuy-inactive">
+                                Expired: 08 Sep
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white rounded-llg px-4 py-5 relative flex flex-row items-center gap-x-4 w-full">
+                            <div class="">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M108 0C108 3.31371 105.314 6 102 6C98.6863 6 96 3.31371 96 0H84C84 3.31371 81.3137 6 78 6C74.6863 6 72 3.31371 72 0H60C60 3.31371 57.3137 6 54 6C50.6863 6 48 3.31371 48 0H36C36 3.31371 33.3137 6 30 6C26.6863 6 24 3.31371 24 0H12C12 3.31371 9.31371 6 6 6C2.68629 6 0 3.31371 0 0V12H0.00117493C2.65214 12 4.80118 14.6863 4.80118 18C4.80118 21.3137 2.65214 24 0.00117493 24H0V36H0.00117493C2.65214 36 4.80118 38.6863 4.80118 42C4.80118 45.3137 2.65214 48 0.00117493 48H0V60H0.00117493C2.65214 60 4.80118 62.6863 4.80118 66C4.80118 69.3137 2.65214 72 0.00117493 72H0V84H0.00117493C2.65214 84 4.80118 86.6863 4.80118 90C4.80118 93.3137 2.65214 96 0.00117493 96H0V108H0.00119446C2.65216 108 4.8012 110.686 4.8012 114C4.8012 117.314 2.65216 120 0.00119446 120H12C12 116.686 14.6863 114 18 114C21.3137 114 24 116.686 24 120H36C36 116.686 38.6863 114 42 114C45.3137 114 48 116.686 48 120H60C60 116.686 62.6863 114 66 114C69.3137 114 72 116.686 72 120H84C84 116.686 86.6863 114 90 114C93.3137 114 96 116.686 96 120H108C108 116.686 110.686 114 114 114C117.314 114 120 116.686 120 120V108C116.686 108 114 105.314 114 102C114 98.6863 116.686 96 120 96V84C116.686 84 114 81.3137 114 78C114 74.6863 116.686 72 120 72V60C116.686 60 114 57.3137 114 54C114 50.6863 116.686 48 120 48V36C116.686 36 114 33.3137 114 30C114 26.6863 116.686 24 120 24V12C116.686 12 114 9.31371 114 6C114 2.68629 116.686 0 120 0H108Z"
+                                        fill="#1F4D65" />
+                                    <rect x="15" y="15" width="90" height="90" rx="5" fill="white" />
+                                    <g filter="url(#filter0_d)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M53.2984 49.7813C52.9583 50.1506 52.7695 50.6343 52.7695 51.1363V89.4373C52.7695 90.5419 53.665 91.4373 54.7695 91.4373H81.0403C82.1449 91.4373 83.0403 90.5419 83.0403 89.4373V51.1363C83.0403 50.6343 82.8515 50.1506 82.5114 49.7813L69.376 35.52C68.5838 34.66 67.226 34.66 66.4338 35.52L53.2984 49.7813ZM67.9038 43.5093C69.0183 43.5093 69.9218 42.6057 69.9218 41.4912C69.9218 40.3767 69.0183 39.4732 67.9038 39.4732C66.7893 39.4732 65.8857 40.3767 65.8857 41.4912C65.8857 42.6057 66.7893 43.5093 67.9038 43.5093Z"
+                                            fill="url(#paint0_linear)" />
+                                    </g>
+                                    <g filter="url(#filter1_d)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M52.3297 35.1152C51.8281 35.1358 51.3526 35.3443 50.9976 35.6993L23.9147 62.7822C23.1337 63.5633 23.1337 64.8296 23.9147 65.6107L42.4909 84.1869C43.272 84.9679 44.5383 84.968 45.3194 84.1869L72.4023 57.104C72.7573 56.749 72.9658 56.2735 72.9864 55.7719L73.7825 36.3995C73.8305 35.2312 72.8704 34.2711 71.7021 34.3191L52.3297 35.1152ZM67.092 41.0082C67.8801 41.7963 69.1578 41.7963 69.9459 41.0082C70.734 40.2201 70.734 38.9424 69.9459 38.1543C69.1578 37.3662 67.8801 37.3662 67.092 38.1543C66.3039 38.9424 66.3039 40.2201 67.092 41.0082Z"
+                                            fill="url(#paint1_linear)" />
+                                    </g>
+                                    <path
+                                        d="M72.6977 27.4958C75.6363 24.6557 79.1045 22.9508 82.788 24.721C83.3057 24.9698 83.5868 25.1371 84.0493 25.4778C87.3623 27.9188 87.6527 32.0228 86.0673 35.8203C84.3816 39.8583 80.8209 41.0585 76.4816 41.6222C73.414 42.0207 70.4621 42.8763 68.6616 40.3609C66.9262 37.9365 68.6547 35.5963 69.6706 32.7932L69.6835 32.7576C70.4879 30.5382 70.9935 29.1429 72.6977 27.4958Z"
+                                        stroke="#707683" />
+                                    <path d="M69.6716 37.8379L69.7055 35.1269C69.7055 35.1269 69.1712 34.9533 68.694 34.7898C68.0196 34.5586 66.6445 34.5586 66.6445 34.5586V38.5947C66.6445 38.5947 67.5615 37.6418 68.1581 37.5857C68.9427 37.5118 69.6716 37.8379 69.6716 37.8379Z" fill="#20AFF5" />
+                                    <path d="M69.4197 39.9577L69.1674 38.0909C69.1674 38.0909 68.6629 37.5864 68.1584 37.5864C67.5673 37.5864 67.1493 38.0909 67.1493 38.0909L66.3926 39.9577C66.3926 39.9577 67.5899 39.1628 68.1584 39.3523C68.9151 39.6046 69.4197 39.9577 69.4197 39.9577Z"
+                                        fill="#1DA1E1" />
+                                    <defs>
+                                        <filter id="filter0_d" x="48.7695" y="34.875" width="38.2708" height="64.5623" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                            <feOffset dy="4" />
+                                            <feGaussianBlur stdDeviation="2" />
+                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                                        </filter>
+                                        <filter id="filter1_d" x="19.3291" y="34.3174" width="58.4553" height="58.4553" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                            <feOffset dy="4" />
+                                            <feGaussianBlur stdDeviation="2" />
+                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                                        </filter>
+                                        <linearGradient id="paint0_linear" x1="67.9049" y1="34.875" x2="67.9049" y2="91.4373" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#21B0F6" />
+                                            <stop offset="1" stop-color="#006DA6" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear" x1="73.1984" y1="34.9032" x2="33.2028" y2="74.8988" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#21B0F6" />
+                                            <stop offset="1" stop-color="#006DA6" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                            </div>
+                            <div>
+                                <div class="text-sm text-ubuy-secondary mb-2">
+                                    10% off your next task
+                                </div>
+                                <div class="text-xs text-ubuy-inactive mb-2">
+                                    Sign Up Reward Coupon
+                                </div>
+                                <div>
+                                    <div class="border-2 border-dotted rounded p-1 border-ubuy-blue flex items-center justify-start w-min">
+                                        <span class="text-sm text-ubuy-blue mr-2">
+                                            INUB15
+                                        </span>
+                                        <button>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#119AE2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M3.33301 10H2.66634C2.31272 10 1.97358 9.85953 1.72353 9.60949C1.47348 9.35944 1.33301 9.0203 1.33301 8.66668V2.66668C1.33301 2.31305 1.47348 1.97392 1.72353 1.72387C1.97358 1.47382 2.31272 1.33334 2.66634 1.33334H8.66634C9.01996 1.33334 9.3591 1.47382 9.60915 1.72387C9.8592 1.97392 9.99967 2.31305 9.99967 2.66668V3.33334"
+                                                    stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute right-4 bottom-4 text-tiny text-ubuy-inactive">
+                                Expired: 08 Sep
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white rounded-llg px-4 py-5 relative flex flex-row items-center gap-x-4 w-full">
+                            <div class="">
+                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M90 0C90 2.76142 87.7614 5 85 5C82.2386 5 80 2.76142 80 0H70C70 2.76142 67.7614 5 65 5C62.2386 5 60 2.76142 60 0H50C50 2.76142 47.7614 5 45 5C42.2386 5 40 2.76142 40 0H30C30 2.76142 27.7614 5 25 5C22.2386 5 20 2.76142 20 0H10C10 2.76142 7.76142 5 5 5C2.23858 5 0 2.76142 0 0V10L0.00195551 10C2.2111 10 4.00196 12.2386 4.00196 15C4.00196 17.7614 2.2111 20 0.00195551 20H0V30H0.00195551C2.2111 30 4.00196 32.2386 4.00196 35C4.00196 37.7614 2.2111 40 0.00195551 40H0V50H0.00195551C2.2111 50 4.00196 52.2386 4.00196 55C4.00196 57.7614 2.2111 60 0.00195551 60H0V70H0.00195551C2.2111 70 4.00196 72.2386 4.00196 75C4.00196 77.7614 2.2111 80 0.00195551 80H0V90H0.000998478C2.21014 90 4.001 92.2386 4.001 95C4.001 97.7614 2.21014 100 0.000998478 100H10C10 97.2386 12.2386 95 15 95C17.7614 95 20 97.2386 20 100H30C30 97.2386 32.2386 95 35 95C37.7614 95 40 97.2386 40 100H50C50 97.2386 52.2386 95 55 95C57.7614 95 60 97.2386 60 100H70C70 97.2386 72.2386 95 75 95C77.7614 95 80 97.2386 80 100H90C90 97.2386 92.2386 95 95 95C97.7614 95 100 97.2386 100 100V90C97.2386 90 95 87.7614 95 85C95 82.2386 97.2386 80 100 80V70C97.2386 70 95 67.7614 95 65C95 62.2386 97.2386 60 100 60V50C97.2386 50 95 47.7614 95 45C95 42.2386 97.2386 40 100 40V30C97.2386 30 95 27.7614 95 25C95 22.2386 97.2386 20 100 20V10C97.2386 10 95 7.76142 95 5C95 2.23858 97.2386 0 100 0H90Z"
+                                        fill="#119AE2" />
+                                    <path d="M20 43.1752V38.0323H28.9596V61.6442H23.2022V43.1752H20Z" fill="white" />
+                                    <path
+                                        d="M49.3685 42.8518H39.2769V47.3154C39.7081 46.841 40.3119 46.4528 41.0882 46.1509C41.8645 45.8491 42.7054 45.6981 43.6111 45.6981C45.2284 45.6981 46.5653 46.0647 47.6219 46.7978C48.7 47.531 49.4871 48.4798 49.9831 49.6442C50.479 50.8086 50.727 52.0701 50.727 53.4286C50.727 55.9515 50.0154 57.9569 48.5922 59.4447C47.1691 60.911 45.1637 61.6442 42.5761 61.6442C40.851 61.6442 39.3523 61.3531 38.0801 60.7709C36.8079 60.1671 35.8267 59.3369 35.1367 58.2803C34.4467 57.2237 34.0693 56.0054 34.0046 54.6253H39.4062C39.5356 55.2938 39.8483 55.8544 40.3443 56.3073C40.8402 56.7385 41.5195 56.9542 42.382 56.9542C43.3955 56.9542 44.1502 56.6307 44.6461 55.9838C45.1421 55.3369 45.3901 54.4744 45.3901 53.3962C45.3901 52.3396 45.1313 51.531 44.6138 50.9703C44.0963 50.4097 43.3416 50.1294 42.3496 50.1294C41.6165 50.1294 41.0127 50.3127 40.5383 50.6792C40.0639 51.0243 39.7513 51.4879 39.6003 52.0701H34.2634V38H49.3685V42.8518Z"
+                                        fill="white" />
+                                    <path
+                                        d="M53.3272 43.9838C53.3272 42.2372 53.8232 40.8895 54.8151 39.9407C55.8286 38.9919 57.1332 38.5175 58.7289 38.5175C60.3245 38.5175 61.6183 38.9919 62.6103 39.9407C63.6022 40.8895 64.0981 42.2372 64.0981 43.9838C64.0981 45.7305 63.6022 47.0782 62.6103 48.027C61.6183 48.9757 60.3245 49.4501 58.7289 49.4501C57.1332 49.4501 55.8286 48.9757 54.8151 48.027C53.8232 47.0782 53.3272 45.7305 53.3272 43.9838ZM75.2895 38.8733L62.8367 61.6442H57.4997L69.9526 38.8733H75.2895ZM58.6965 41.752C57.6615 41.752 57.1439 42.496 57.1439 43.9838C57.1439 45.4501 57.6615 46.1833 58.6965 46.1833C59.1925 46.1833 59.5806 46 59.8609 45.6334C60.1413 45.2668 60.2814 44.717 60.2814 43.9838C60.2814 42.496 59.7531 41.752 58.6965 41.752ZM68.7235 56.5337C68.7235 54.7871 69.2194 53.4394 70.2113 52.4906C71.2033 51.5418 72.4971 51.0674 74.0927 51.0674C75.6884 51.0674 76.9822 51.5418 77.9741 52.4906C78.9661 53.4394 79.462 54.7871 79.462 56.5337C79.462 58.2803 78.9661 59.628 77.9741 60.5768C76.9822 61.5256 75.6884 62 74.0927 62C72.4971 62 71.2033 61.5256 70.2113 60.5768C69.2194 59.628 68.7235 58.2803 68.7235 56.5337ZM74.0604 54.3019C73.5644 54.3019 73.1763 54.4852 72.896 54.8518C72.6372 55.2183 72.5078 55.779 72.5078 56.5337C72.5078 58 73.0253 58.7332 74.0604 58.7332C74.5563 58.7332 74.9445 58.5499 75.2248 58.1833C75.5051 57.8167 75.6453 57.2668 75.6453 56.5337C75.6453 55.8005 75.5051 55.2507 75.2248 54.8841C74.9445 54.496 74.5563 54.3019 74.0604 54.3019Z"
+                                        fill="white" />
+                                </svg>
+
+                            </div>
+                            <div>
+                                <div class="text-sm text-ubuy-secondary mb-2">
+                                    10% off your next task
+                                </div>
+                                <div class="text-xs text-ubuy-inactive mb-2">
+                                    Sign Up Reward Coupon
+                                </div>
+                                <div>
+                                    <div class="border-2 border-dotted rounded p-1 border-ubuy-blue flex items-center justify-start w-min">
+                                        <span class="text-sm text-ubuy-blue mr-2">
+                                            INUB15
+                                        </span>
+                                        <button>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#119AE2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M3.33301 10H2.66634C2.31272 10 1.97358 9.85953 1.72353 9.60949C1.47348 9.35944 1.33301 9.0203 1.33301 8.66668V2.66668C1.33301 2.31305 1.47348 1.97392 1.72353 1.72387C1.97358 1.47382 2.31272 1.33334 2.66634 1.33334H8.66634C9.01996 1.33334 9.3591 1.47382 9.60915 1.72387C9.8592 1.97392 9.99967 2.31305 9.99967 2.66668V3.33334"
+                                                    stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute right-4 bottom-4 text-tiny text-ubuy-inactive">
+                                Expired: 08 Sep
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white rounded-llg px-4 py-5 relative flex flex-row items-center gap-x-4 w-full">
+                            <div class="">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M108 0C108 3.31371 105.314 6 102 6C98.6863 6 96 3.31371 96 0H84C84 3.31371 81.3137 6 78 6C74.6863 6 72 3.31371 72 0H60C60 3.31371 57.3137 6 54 6C50.6863 6 48 3.31371 48 0H36C36 3.31371 33.3137 6 30 6C26.6863 6 24 3.31371 24 0H12C12 3.31371 9.31371 6 6 6C2.68629 6 0 3.31371 0 0V12H0.00117493C2.65214 12 4.80118 14.6863 4.80118 18C4.80118 21.3137 2.65214 24 0.00117493 24H0V36H0.00117493C2.65214 36 4.80118 38.6863 4.80118 42C4.80118 45.3137 2.65214 48 0.00117493 48H0V60H0.00117493C2.65214 60 4.80118 62.6863 4.80118 66C4.80118 69.3137 2.65214 72 0.00117493 72H0V84H0.00117493C2.65214 84 4.80118 86.6863 4.80118 90C4.80118 93.3137 2.65214 96 0.00117493 96H0V108H0.00119446C2.65216 108 4.8012 110.686 4.8012 114C4.8012 117.314 2.65216 120 0.00119446 120H12C12 116.686 14.6863 114 18 114C21.3137 114 24 116.686 24 120H36C36 116.686 38.6863 114 42 114C45.3137 114 48 116.686 48 120H60C60 116.686 62.6863 114 66 114C69.3137 114 72 116.686 72 120H84C84 116.686 86.6863 114 90 114C93.3137 114 96 116.686 96 120H108C108 116.686 110.686 114 114 114C117.314 114 120 116.686 120 120V108C116.686 108 114 105.314 114 102C114 98.6863 116.686 96 120 96V84C116.686 84 114 81.3137 114 78C114 74.6863 116.686 72 120 72V60C116.686 60 114 57.3137 114 54C114 50.6863 116.686 48 120 48V36C116.686 36 114 33.3137 114 30C114 26.6863 116.686 24 120 24V12C116.686 12 114 9.31371 114 6C114 2.68629 116.686 0 120 0H108Z"
+                                        fill="#1F4D65" />
+                                    <rect x="15" y="15" width="90" height="90" rx="5" fill="white" />
+                                    <g filter="url(#filter0_d)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M53.2984 49.7813C52.9583 50.1506 52.7695 50.6343 52.7695 51.1363V89.4373C52.7695 90.5419 53.665 91.4373 54.7695 91.4373H81.0403C82.1449 91.4373 83.0403 90.5419 83.0403 89.4373V51.1363C83.0403 50.6343 82.8515 50.1506 82.5114 49.7813L69.376 35.52C68.5838 34.66 67.226 34.66 66.4338 35.52L53.2984 49.7813ZM67.9038 43.5093C69.0183 43.5093 69.9218 42.6057 69.9218 41.4912C69.9218 40.3767 69.0183 39.4732 67.9038 39.4732C66.7893 39.4732 65.8857 40.3767 65.8857 41.4912C65.8857 42.6057 66.7893 43.5093 67.9038 43.5093Z"
+                                            fill="url(#paint0_linear)" />
+                                    </g>
+                                    <g filter="url(#filter1_d)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M52.3297 35.1152C51.8281 35.1358 51.3526 35.3443 50.9976 35.6993L23.9147 62.7822C23.1337 63.5633 23.1337 64.8296 23.9147 65.6107L42.4909 84.1869C43.272 84.9679 44.5383 84.968 45.3194 84.1869L72.4023 57.104C72.7573 56.749 72.9658 56.2735 72.9864 55.7719L73.7825 36.3995C73.8305 35.2312 72.8704 34.2711 71.7021 34.3191L52.3297 35.1152ZM67.092 41.0082C67.8801 41.7963 69.1578 41.7963 69.9459 41.0082C70.734 40.2201 70.734 38.9424 69.9459 38.1543C69.1578 37.3662 67.8801 37.3662 67.092 38.1543C66.3039 38.9424 66.3039 40.2201 67.092 41.0082Z"
+                                            fill="url(#paint1_linear)" />
+                                    </g>
+                                    <path
+                                        d="M72.6977 27.4958C75.6363 24.6557 79.1045 22.9508 82.788 24.721C83.3057 24.9698 83.5868 25.1371 84.0493 25.4778C87.3623 27.9188 87.6527 32.0228 86.0673 35.8203C84.3816 39.8583 80.8209 41.0585 76.4816 41.6222C73.414 42.0207 70.4621 42.8763 68.6616 40.3609C66.9262 37.9365 68.6547 35.5963 69.6706 32.7932L69.6835 32.7576C70.4879 30.5382 70.9935 29.1429 72.6977 27.4958Z"
+                                        stroke="#707683" />
+                                    <path d="M69.6716 37.8379L69.7055 35.1269C69.7055 35.1269 69.1712 34.9533 68.694 34.7898C68.0196 34.5586 66.6445 34.5586 66.6445 34.5586V38.5947C66.6445 38.5947 67.5615 37.6418 68.1581 37.5857C68.9427 37.5118 69.6716 37.8379 69.6716 37.8379Z" fill="#20AFF5" />
+                                    <path d="M69.4197 39.9577L69.1674 38.0909C69.1674 38.0909 68.6629 37.5864 68.1584 37.5864C67.5673 37.5864 67.1493 38.0909 67.1493 38.0909L66.3926 39.9577C66.3926 39.9577 67.5899 39.1628 68.1584 39.3523C68.9151 39.6046 69.4197 39.9577 69.4197 39.9577Z"
+                                        fill="#1DA1E1" />
+                                    <defs>
+                                        <filter id="filter0_d" x="48.7695" y="34.875" width="38.2708" height="64.5623" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                            <feOffset dy="4" />
+                                            <feGaussianBlur stdDeviation="2" />
+                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                                        </filter>
+                                        <filter id="filter1_d" x="19.3291" y="34.3174" width="58.4553" height="58.4553" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                            <feOffset dy="4" />
+                                            <feGaussianBlur stdDeviation="2" />
+                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                                        </filter>
+                                        <linearGradient id="paint0_linear" x1="67.9049" y1="34.875" x2="67.9049" y2="91.4373" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#21B0F6" />
+                                            <stop offset="1" stop-color="#006DA6" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear" x1="73.1984" y1="34.9032" x2="33.2028" y2="74.8988" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#21B0F6" />
+                                            <stop offset="1" stop-color="#006DA6" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                            </div>
+                            <div>
+                                <div class="text-sm text-ubuy-secondary mb-2">
+                                    10% off your next task
+                                </div>
+                                <div class="text-xs text-ubuy-inactive mb-2">
+                                    Sign Up Reward Coupon
+                                </div>
+                                <div>
+                                    <div class="border-2 border-dotted rounded p-1 border-ubuy-blue flex items-center justify-start w-min">
+                                        <span class="text-sm text-ubuy-blue mr-2">
+                                            INUB15
+                                        </span>
+                                        <button>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#119AE2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M3.33301 10H2.66634C2.31272 10 1.97358 9.85953 1.72353 9.60949C1.47348 9.35944 1.33301 9.0203 1.33301 8.66668V2.66668C1.33301 2.31305 1.47348 1.97392 1.72353 1.72387C1.97358 1.47382 2.31272 1.33334 2.66634 1.33334H8.66634C9.01996 1.33334 9.3591 1.47382 9.60915 1.72387C9.8592 1.97392 9.99967 2.31305 9.99967 2.66668V3.33334"
+                                                    stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute right-4 bottom-4 text-tiny text-ubuy-inactive">
+                                Expired: 08 Sep
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white rounded-llg px-4 py-5 relative flex flex-row items-center gap-x-4 w-full">
+                            <div class="">
+                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M90 0C90 2.76142 87.7614 5 85 5C82.2386 5 80 2.76142 80 0H70C70 2.76142 67.7614 5 65 5C62.2386 5 60 2.76142 60 0H50C50 2.76142 47.7614 5 45 5C42.2386 5 40 2.76142 40 0H30C30 2.76142 27.7614 5 25 5C22.2386 5 20 2.76142 20 0H10C10 2.76142 7.76142 5 5 5C2.23858 5 0 2.76142 0 0V10L0.00195551 10C2.2111 10 4.00196 12.2386 4.00196 15C4.00196 17.7614 2.2111 20 0.00195551 20H0V30H0.00195551C2.2111 30 4.00196 32.2386 4.00196 35C4.00196 37.7614 2.2111 40 0.00195551 40H0V50H0.00195551C2.2111 50 4.00196 52.2386 4.00196 55C4.00196 57.7614 2.2111 60 0.00195551 60H0V70H0.00195551C2.2111 70 4.00196 72.2386 4.00196 75C4.00196 77.7614 2.2111 80 0.00195551 80H0V90H0.000998478C2.21014 90 4.001 92.2386 4.001 95C4.001 97.7614 2.21014 100 0.000998478 100H10C10 97.2386 12.2386 95 15 95C17.7614 95 20 97.2386 20 100H30C30 97.2386 32.2386 95 35 95C37.7614 95 40 97.2386 40 100H50C50 97.2386 52.2386 95 55 95C57.7614 95 60 97.2386 60 100H70C70 97.2386 72.2386 95 75 95C77.7614 95 80 97.2386 80 100H90C90 97.2386 92.2386 95 95 95C97.7614 95 100 97.2386 100 100V90C97.2386 90 95 87.7614 95 85C95 82.2386 97.2386 80 100 80V70C97.2386 70 95 67.7614 95 65C95 62.2386 97.2386 60 100 60V50C97.2386 50 95 47.7614 95 45C95 42.2386 97.2386 40 100 40V30C97.2386 30 95 27.7614 95 25C95 22.2386 97.2386 20 100 20V10C97.2386 10 95 7.76142 95 5C95 2.23858 97.2386 0 100 0H90Z"
+                                        fill="#119AE2" />
+                                    <path d="M20 43.1752V38.0323H28.9596V61.6442H23.2022V43.1752H20Z" fill="white" />
+                                    <path
+                                        d="M49.3685 42.8518H39.2769V47.3154C39.7081 46.841 40.3119 46.4528 41.0882 46.1509C41.8645 45.8491 42.7054 45.6981 43.6111 45.6981C45.2284 45.6981 46.5653 46.0647 47.6219 46.7978C48.7 47.531 49.4871 48.4798 49.9831 49.6442C50.479 50.8086 50.727 52.0701 50.727 53.4286C50.727 55.9515 50.0154 57.9569 48.5922 59.4447C47.1691 60.911 45.1637 61.6442 42.5761 61.6442C40.851 61.6442 39.3523 61.3531 38.0801 60.7709C36.8079 60.1671 35.8267 59.3369 35.1367 58.2803C34.4467 57.2237 34.0693 56.0054 34.0046 54.6253H39.4062C39.5356 55.2938 39.8483 55.8544 40.3443 56.3073C40.8402 56.7385 41.5195 56.9542 42.382 56.9542C43.3955 56.9542 44.1502 56.6307 44.6461 55.9838C45.1421 55.3369 45.3901 54.4744 45.3901 53.3962C45.3901 52.3396 45.1313 51.531 44.6138 50.9703C44.0963 50.4097 43.3416 50.1294 42.3496 50.1294C41.6165 50.1294 41.0127 50.3127 40.5383 50.6792C40.0639 51.0243 39.7513 51.4879 39.6003 52.0701H34.2634V38H49.3685V42.8518Z"
+                                        fill="white" />
+                                    <path
+                                        d="M53.3272 43.9838C53.3272 42.2372 53.8232 40.8895 54.8151 39.9407C55.8286 38.9919 57.1332 38.5175 58.7289 38.5175C60.3245 38.5175 61.6183 38.9919 62.6103 39.9407C63.6022 40.8895 64.0981 42.2372 64.0981 43.9838C64.0981 45.7305 63.6022 47.0782 62.6103 48.027C61.6183 48.9757 60.3245 49.4501 58.7289 49.4501C57.1332 49.4501 55.8286 48.9757 54.8151 48.027C53.8232 47.0782 53.3272 45.7305 53.3272 43.9838ZM75.2895 38.8733L62.8367 61.6442H57.4997L69.9526 38.8733H75.2895ZM58.6965 41.752C57.6615 41.752 57.1439 42.496 57.1439 43.9838C57.1439 45.4501 57.6615 46.1833 58.6965 46.1833C59.1925 46.1833 59.5806 46 59.8609 45.6334C60.1413 45.2668 60.2814 44.717 60.2814 43.9838C60.2814 42.496 59.7531 41.752 58.6965 41.752ZM68.7235 56.5337C68.7235 54.7871 69.2194 53.4394 70.2113 52.4906C71.2033 51.5418 72.4971 51.0674 74.0927 51.0674C75.6884 51.0674 76.9822 51.5418 77.9741 52.4906C78.9661 53.4394 79.462 54.7871 79.462 56.5337C79.462 58.2803 78.9661 59.628 77.9741 60.5768C76.9822 61.5256 75.6884 62 74.0927 62C72.4971 62 71.2033 61.5256 70.2113 60.5768C69.2194 59.628 68.7235 58.2803 68.7235 56.5337ZM74.0604 54.3019C73.5644 54.3019 73.1763 54.4852 72.896 54.8518C72.6372 55.2183 72.5078 55.779 72.5078 56.5337C72.5078 58 73.0253 58.7332 74.0604 58.7332C74.5563 58.7332 74.9445 58.5499 75.2248 58.1833C75.5051 57.8167 75.6453 57.2668 75.6453 56.5337C75.6453 55.8005 75.5051 55.2507 75.2248 54.8841C74.9445 54.496 74.5563 54.3019 74.0604 54.3019Z"
+                                        fill="white" />
+                                </svg>
+
+                            </div>
+                            <div>
+                                <div class="text-sm text-ubuy-secondary mb-2">
+                                    10% off your next task
+                                </div>
+                                <div class="text-xs text-ubuy-inactive mb-2">
+                                    Sign Up Reward Coupon
+                                </div>
+                                <div>
+                                    <div class="border-2 border-dotted rounded p-1 border-ubuy-blue flex items-center justify-start w-min">
+                                        <span class="text-sm text-ubuy-blue mr-2">
+                                            INUB15
+                                        </span>
+                                        <button>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#119AE2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M3.33301 10H2.66634C2.31272 10 1.97358 9.85953 1.72353 9.60949C1.47348 9.35944 1.33301 9.0203 1.33301 8.66668V2.66668C1.33301 2.31305 1.47348 1.97392 1.72353 1.72387C1.97358 1.47382 2.31272 1.33334 2.66634 1.33334H8.66634C9.01996 1.33334 9.3591 1.47382 9.60915 1.72387C9.8592 1.97392 9.99967 2.31305 9.99967 2.66668V3.33334"
+                                                    stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute right-4 bottom-4 text-tiny text-ubuy-inactive">
+                                Expired: 08 Sep
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white rounded-llg px-4 py-5 relative flex flex-row items-center gap-x-4  w-full">
+                            <div class="">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M119.969 0H107.999C107.999 3.31363 105.313 5.99983 101.999 5.99983C98.6857 5.99983 95.9994 3.31363 95.9993 0H84.0003C84.0002 3.31363 81.314 5.99983 78.0003 5.99983C74.6867 5.99983 72.0004 3.31363 72.0003 0H59.9997C59.9996 3.31363 57.3133 5.99983 53.9997 5.99983C50.686 5.99983 47.9998 3.31363 47.9997 0H36.0007C36.0006 3.31363 33.3143 5.99983 30.0007 5.99983C26.687 5.99983 24.0008 3.31363 24.0007 0H12C11.9999 3.31359 9.31362 5.99973 6 5.99973C2.68638 5.99973 0.000143999 3.31359 0 0V11.9998H0.00121689C2.65219 11.9998 4.80122 14.6861 4.80122 17.9998C4.80122 21.3135 2.65219 23.9998 0.00121689 23.9998H0V36.0001H0.00121689C2.65219 36.0001 4.80122 38.6864 4.80122 42.0001C4.80122 45.3138 2.65219 48.0001 0.00121689 48.0001H0V59.9999H0.00121689C2.65219 59.9999 4.80122 62.6862 4.80122 65.9999C4.80122 69.3136 2.65219 71.9999 0.00121689 71.9999H0V84.0002H0.00121689C2.65219 84.0002 4.80122 86.6865 4.80122 90.0002C4.80122 93.3139 2.65219 96.0002 0.00121689 96.0002H0V108H0.00116806C2.65214 108 4.80117 110.686 4.80117 114C4.80117 117.314 2.65214 120 0.00116806 120H12.0003C12.0003 116.686 14.6866 114 18.0003 114C21.314 114 24.0003 116.686 24.0003 120H35.9997C35.9997 116.686 38.686 114 41.9997 114C45.3134 114 47.9997 116.686 47.9997 120H60.0003C60.0003 116.686 62.6866 114 66.0003 114C69.314 114 72.0003 116.686 72.0003 120H84.001C84.001 116.686 86.6873 114 90.001 114C93.3147 114 96.001 116.686 96.001 120H108C108 116.686 110.686 114 114 114C117.314 114 120 116.686 120 120V108C116.687 108 114.001 105.313 114.001 102C114.001 98.6865 116.687 96.0004 120 96V83.9998C116.687 83.9995 114.001 81.3133 114.001 77.9998C114.001 74.6863 116.687 72.0002 120 71.9998V60C116.687 59.9996 114.001 57.3135 114.001 54C114.001 50.6865 116.687 48.0004 120 48V36.0002C116.687 35.9998 114.001 33.3137 114.001 30.0002C114.001 26.6867 116.687 24.0005 120 24.0002V11.9999C116.687 11.9996 114.001 9.3134 114.001 5.99992C114.001 2.69691 116.67 0.0172673 119.969 0Z"
+                                        fill="#F9F9FA" />
+                                    <rect x="15" y="15" width="90" height="90" rx="5" fill="#1F4D65" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M67.145 54.9327L54.1553 58.3555L66.0469 101.999L70.1585 91.5612L79.0359 98.5776L66.0472 102L66.0473 102L79.037 98.5775L67.145 54.9327Z" fill="#E93C3C" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M54.6148 54.9327L67.6045 58.3555L55.7125 102L55.7099 102L51.5979 91.5612L42.7234 98.5754L54.6148 54.9327Z" fill="#E93C3C" />
+                                    <path
+                                        d="M58.9358 38.8803C59.7116 37.5795 61.5955 37.5795 62.3713 38.8803L62.51 39.1128C63.1496 40.1854 64.605 40.4159 65.5448 39.5935L65.7485 39.4152C66.8883 38.4178 68.68 39 69.0158 40.4768L69.0759 40.7408C69.3528 41.9586 70.6657 42.6275 71.8136 42.1358L72.0625 42.0292C73.4547 41.4328 74.9788 42.5401 74.8418 44.0485L74.8173 44.3181C74.7044 45.5618 75.7463 46.6037 76.99 46.4908L77.2596 46.4663C78.768 46.3293 79.8753 47.8535 79.2789 49.2457L79.1723 49.4945C78.6806 50.6425 79.3495 51.9553 80.5673 52.2323L80.8313 52.2923C82.3081 52.6281 82.8903 54.4198 81.8929 55.5596L81.7146 55.7633C80.8922 56.7031 81.1227 58.1585 82.1953 58.7982L82.4278 58.9368C83.7286 59.7126 83.7286 61.5965 82.4278 62.3723L82.1953 62.5109C81.1227 63.1506 80.8922 64.606 81.7146 65.5458L81.8929 65.7495C82.8903 66.8892 82.3081 68.681 80.8313 69.0168L80.5673 69.0768C79.3495 69.3537 78.6806 70.6666 79.1723 71.8146L79.2789 72.0634C79.8753 73.4556 78.768 74.9798 77.2596 74.8428L76.99 74.8183C75.7463 74.7053 74.7044 75.7473 74.8173 76.991L74.8418 77.2606C74.9788 78.769 73.4547 79.8763 72.0625 79.2799L71.8136 79.1733C70.6657 78.6816 69.3528 79.3505 69.0759 80.5683L69.0158 80.8323C68.68 82.3091 66.8883 82.8913 65.7485 81.8939L65.5448 81.7156C64.605 80.8932 63.1496 81.1237 62.51 82.1963L62.3713 82.4288C61.5955 83.7296 59.7116 83.7296 58.9358 82.4288L58.7972 82.1963C58.1575 81.1237 56.7022 80.8932 55.7623 81.7156L55.5586 81.8939C54.4189 82.8913 52.6271 82.3091 52.2913 80.8323L52.2313 80.5683C51.9544 79.3505 50.6415 78.6816 49.4935 79.1733L49.2447 79.2799C47.8525 79.8763 46.3283 78.769 46.4653 77.2606L46.4898 76.991C46.6028 75.7473 45.5608 74.7053 44.3171 74.8183L44.0475 74.8428C42.5392 74.9798 41.4318 73.4556 42.0282 72.0634L42.1348 71.8146C42.6266 70.6666 41.9576 69.3537 40.7398 69.0768L40.4759 69.0168C38.999 68.681 38.4168 66.8892 39.4142 65.7495L39.5925 65.5458C40.415 64.606 40.1844 63.1506 39.1118 62.5109L38.8793 62.3723C37.5785 61.5965 37.5785 59.7126 38.8793 58.9368L39.1118 58.7982C40.1845 58.1585 40.415 56.7031 39.5925 55.7633L39.4142 55.5596C38.4168 54.4198 38.999 52.6281 40.4759 52.2923L40.7398 52.2323C41.9576 51.9553 42.6266 50.6425 42.1348 49.4945L42.0282 49.2456C41.4318 47.8535 42.5392 46.3293 44.0475 46.4663L44.3171 46.4908C45.5609 46.6037 46.6028 45.5618 46.4898 44.3181L46.4653 44.0485C46.3283 42.5401 47.8525 41.4328 49.2447 42.0292L49.4935 42.1358C50.6415 42.6275 51.9544 41.9586 52.2313 40.7408L52.2913 40.4768C52.6271 39 54.4189 38.4178 55.5586 39.4152L55.7623 39.5935C56.7022 40.4159 58.1575 40.1854 58.7972 39.1128L58.9358 38.8803Z"
+                                        fill="#F1B974" />
+                                    <circle cx="60.5091" cy="60.5101" r="16.8099" fill="#D08230" />
+                                    <path d="M59.999 52L62.0196 58.2188H68.5585L63.2685 62.0623L65.2891 68.2812L59.999 64.4377L54.709 68.2812L56.7296 62.0623L51.4395 58.2188H57.9784L59.999 52Z" fill="#F9F9FA" />
+                                    <circle cx="34.5" cy="25.5" r="1.5" fill="#F1B974" />
+                                    <circle cx="59.999" cy="31.5" r="1.5" fill="#F1B974" />
+                                    <circle cx="82.499" cy="28.5" r="1.5" fill="#F1B974" />
+                                    <circle cx="94.5" cy="45" r="1.5" fill="#F1B974" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-sm text-ubuy-secondary mb-2">
+                                    10% off your next task
+                                </div>
+                                <div class="text-xs text-ubuy-inactive mb-2">
+                                    Sign Up Reward Coupon
+                                </div>
+                                <div>
+                                    <div class="border-2 border-dotted rounded p-1 border-ubuy-blue flex items-center justify-start w-min">
+                                        <span class="text-sm text-ubuy-blue mr-2">
+                                            INUB15
+                                        </span>
+                                        <button>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#119AE2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M3.33301 10H2.66634C2.31272 10 1.97358 9.85953 1.72353 9.60949C1.47348 9.35944 1.33301 9.0203 1.33301 8.66668V2.66668C1.33301 2.31305 1.47348 1.97392 1.72353 1.72387C1.97358 1.47382 2.31272 1.33334 2.66634 1.33334H8.66634C9.01996 1.33334 9.3591 1.47382 9.60915 1.72387C9.8592 1.97392 9.99967 2.31305 9.99967 2.66668V3.33334"
+                                                    stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute right-4 bottom-4 text-tiny text-ubuy-inactive">
+                                Expired: 08 Sep
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

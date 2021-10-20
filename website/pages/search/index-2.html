@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="../../../assets/styles/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/custom-style.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header class="w-full py-5 mb-10">
+        <nav class="max-w-7xl px-5 mx-auto w-full flex flex-row items-center justify-between relative text-sm">
+            <input class="hidden" type="checkbox" id="toggle-mob-menu" />
+            <label for="toggle-mob-menu" class="lg:hidden block">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1.58203H21M1 8.58203H21M1 15.582H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+            </label>
+            <a href="/" class="px-4 py-2.5 flex-1 flex flex-row items-center lg:justify-start justify-center">
+                <img src="../../assets/images/logo.png" alt="logo" />
+            </a>
+            <div class="flex flex-row items-center text-base font-medium relative" id="menu">
+                <ul class="lg:flex hidden flex-row items-center">
+                    <li class="hide-menu-btn hidden w-full flex-row justify-between">
+                        <a href="/" class="flex flex-row items-center justify-center">
+                            <img src="../../assets/images/logo.png" alt="logo" />
+                        </a>
+                        <label for="toggle-mob-menu">
+                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.778.808l1.414 1.414L11.414 10l7.778 7.778-1.414 1.414L10 11.414l-7.778 7.778-1.414-1.414L8.586 10 .808 2.222 2.222.808 10 8.586 17.778.808z" fill="#000" fillRule="evenodd" />
+                            </svg>
+                        </label>
+                    </li>
+                    <li class="mr-12 px-4 py-2.5">
+                        <button class="cursor-pointer focus:outline-none flex flex-row items-center lg:px-4 lg:py-2.5">
+                            <span class="mr-2 font-medium text-base">Categories</span>
+                            <span>
+                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.891602 1.12842L4.73269 4.96773L8.572 1.12842" stroke="currentColor" />
+                                </svg>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="mr-12 rounded-md hover:bg-yellow-dark px-4 py-2.5">
+                        <a href="/u-assistant">U-Assistant</a>
+                    </li>
+
+                    <li class="mr-12 rounded-md hover:bg-yellow-dark px-4 py-2.5">
+                        <a href="/how-it-works">How it works</a>
+                    </li>
+                </ul>
+                <div class="lg:flex hidden flex-row items-center action-wrapper">
+                    <hr class="transform rotate-90 w-11 border-ubuy-gray200" />
+                    <a href="/u-assistant" class="px-4 py-2.5 mr-12 text-ubuy-blue">Sign Up</a>
+                    <button class="px-4 py-2.5 rounded-md bg-ubuy-blue text-white">Post Task</button>
+                </div>
+            </div>
+            <a href="../auth/login/index.html" class="px-4 py-2.5 text-ubuy-blue lg:hidden block">Login</a>
+        </nav>
+    </header>
+    <main class="w-full overflow-hidden">
+        <section class="px-8 pb-24 w-full bg-white">
+            <div class="w-full mx-auto max-w-7xl mb-1 rounded-llg contact-hero px-8 py-16 xl:py-44 xl:px-14 relative flex flex-col justify-center items-center bg-ubuy-shade100">
+                <h1 class="text-2xl md:text-32 xl:text-44 text-center xl:leading-relaxed mb-3">
+                    Find the best professionals for your needs
+                </h1>
+                <div class="lg:text-2xl text-sm text-center mb-10">
+                    120 skilled professionals found in your location
+                </div>
+                <div class="flex flex-row rounded-lg max-w-2xl w-full mx-auto bg-white" style="border: 1px solid rgba(229, 229, 229, 0.4); box-shadow: 0px 0px 77px rgba(0, 0, 0, 0.05)">
+                    <label for="category" class="flex flex-row items-center py-4 px-6">
+                        <span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#119AE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21 21.0004L16.65 16.6504" stroke="#119AE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="#119AE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </label>
+                    <select name="category" id="category" class="text-ubuy-black text-base appearance-none focus:outline-none border-r border-ubuy-gray450 bg-white pr-6 w-1/2">
+                        <option value="Photograhers" selected>Photograhers</option>
+                    </select>
+                    <label for="location" class="self-center relative flex flex-row w-1/2">
+                        <span class="ml-6 flex items-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#119AE2" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#119AE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <input type="text" name="location" id="location" class="rounded-llg focus:outline-none w-full px-3 py-4" value="Lagos" />
+                        <button class="rounded bg-ubuy-blue p-2 shadow-card absolute right-4 top-1/2 transform -translate-y-1/2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21.0004 20.9999L16.6504 16.6499" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="w-full bg-ubuy-shadee py-16">
+            <div class="wrapper mx-auto">
+                <div class="mb-10 text-center max-w-3xl mx-auto">
+                    <h1 class="text-32 font-semibold text-ubuy-dark mb-2.5">
+                        Photographers in Lagos
+                    </h1>
+                    <p class="text-base text-ubuy-secondary text-center ">
+                        120 skilled Photographers found around Lagos
+                    </p>
+                </div>
+                <div class="mb-10">
+                    <div class="flex flex-row justify-between items-center text-sm text-ubuy-secondary border-b border-ubuy-gray200 pb-10">
+
+                        <div class="bg-white rounded-llg py-2 px-5 flex flex-row items-center sm:w-52 border border-ubuy-gray450">
+                            <label for="sort-by" class="flex flex-row items-center mr-2 relative w-full">
+                                <div class="absolute flex flex-row">
+                                    <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M1.69285 6.40258L4.97345 3.18822C5.22971 2.93722 5.64541 2.9373 5.90151 3.18822L9.18198 6.40258C9.59501 6.80718 9.30088 7.50002 8.71793 7.50002H6.75V20.3571C6.75 20.7122 6.4562 21 6.09375 21H4.78125C4.41879 21 4.125 20.7122 4.125 20.3571V7.50002H2.1569C1.5728 7.50002 1.28069 6.80637 1.69285 6.40258ZM11.3437 5.57145H21.8438C22.2062 5.57145 22.5 5.28365 22.5 4.92859V3.64288C22.5 3.28782 22.2062 3.00002 21.8438 3.00002H11.3437C10.9813 3.00002 10.6875 3.28782 10.6875 3.64288V4.92859C10.6875 5.28365 10.9813 5.57145 11.3437 5.57145ZM10.6875 10.0714V8.78573C10.6875 8.43067 10.9813 8.14287 11.3437 8.14287H19.2188C19.5812 8.14287 19.875 8.43067 19.875 8.78573V10.0714C19.875 10.4265 19.5812 10.7143 19.2188 10.7143H11.3437C10.9813 10.7143 10.6875 10.4265 10.6875 10.0714ZM10.6875 20.3571V19.0714C10.6875 18.7164 10.9813 18.4286 11.3437 18.4286H13.9687C14.3312 18.4286 14.625 18.7164 14.625 19.0714V20.3571C14.625 20.7122 14.3312 21 13.9687 21H11.3437C10.9813 21 10.6875 20.7122 10.6875 20.3571ZM10.6875 15.2143V13.9286C10.6875 13.5735 10.9813 13.2857 11.3437 13.2857H16.5937C16.9562 13.2857 17.25 13.5735 17.25 13.9286V15.2143C17.25 15.5693 16.9562 15.8571 16.5937 15.8571H11.3437C10.9813 15.8571 10.6875 15.5693 10.6875 15.2143Z"
+                                                fill="#222F54" />
+                                        </svg>
+                                    </span>
+                                    <span class="hidden sm:inline whitespace-nowrap mt-1">
+                                        Sort by: Date Joined
+                                    </span>
+                                </div>
+
+                                <select name="sort-by" id="sort-by" class="bg-transparent text-ubuy-black py-2 px-3 appearance-none w-full">
+                                    <option value=""></option>
+                                </select>
+                            </label>
+
+                        </div>
+                        <div class="bg-white py-3 px-5  flex flex-row items-center rounded-llg border border-ubuy-gray450">
+                            <label for="filter-pros" class="flex flex-row">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.1554 0H0.84473C0.0952696 0 -0.282906 0.909351 0.248129 1.44039L6.74999 7.94324V15.1875C6.74999 15.4628 6.88433 15.7208 7.10989 15.8787L9.92239 17.8468C10.4773 18.2352 11.25 17.8415 11.25 17.1555V7.94324L17.752 1.44039C18.282 0.910406 17.9064 0 17.1554 0Z"
+                                        fill="#52575C" />
+                                </svg>
+                                <span class="ml-3 sm:inline hidden">Filter</span>
+                            </label>
+                            <select name="filter-pro" id="filter-pro" class="px-3 py-2 bg-transparent appearance-none">
+                                <option value=""></option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-20 shadow-hw lg:px-6 px-5 py-6 flex flex-row items-center justify-center w-full">
+                        <div>
+                            <div class="bg-no-repeat bg-contain rounded-full mr-4" style="background-image: url('../../assets/images/profile.png'); width: 140px; height: 140px;"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-row items-center w-full">
+                                <div class="flex flex-row text-ubuy-black w-full justify-between">
+                                    <div class="flex flex-row items-center">
+                                        <h2 class="text-2xl font-medium mr-5">
+                                            Dwayne Alade
+                                        </h2>
+                                        <div class="flex flex-row">
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#2AC769" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Identity Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center mx-3">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#119AE2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Phone Verified</span>
+                                            </div>
+                                            <div class="flex flex-row items-center justify-center">
+                                                <span class="mr-2">
+                                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.16683 4.61677V5.00011C9.16632 5.89862 8.87537 6.77289 8.33738 7.49253C7.7994 8.21218 7.0432 8.73864 6.18156 8.9934C5.31993 9.24816 4.39902 9.21757 3.55619 8.90618C2.71336 8.5948 1.99377 8.01931 1.50473 7.26555C1.01569 6.51179 0.783409 5.62013 0.842528 4.72357C0.901647 3.82701 1.249 2.97358 1.83278 2.29055C2.41656 1.60753 3.20549 1.13152 4.08191 0.9335C4.95833 0.735485 5.87527 0.82608 6.696 1.19177"
+                                                            stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M9.16667 1.6665L5 5.83734L3.75 4.58734" stroke="#F6A609" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="text-tinyer">Email Verified</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex flex-row items-center">
+                                        <div class="flex flex-row items-center">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.0654 9.79511L12.995 16L7.98706 12.1402L3.00431 16L4.93386 9.79511L0 6.00935H6.13156L7.98778 0L9.86844 6.00935H16L11.0654 9.79511Z" fill="#FFDD00" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm ml-1.5">
+                                            (15)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-row items-center justify-between w-full">
+                                <h3 class="text-base">
+                                    House Cleaner
+                                </h3>
+                                <div class="text-xs flex flow-row items-center">
+                                    <span class="mr-3">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 6.66669C14 11.3334 8 15.3334 8 15.3334C8 15.3334 2 11.3334 2 6.66669C2 5.07539 2.63214 3.54926 3.75736 2.42405C4.88258 1.29883 6.4087 0.666687 8 0.666687C9.5913 0.666687 11.1174 1.29883 12.2426 2.42405C13.3679 3.54926 14 5.07539 14 6.66669Z"
+                                                stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 8.66669C9.10457 8.66669 10 7.77126 10 6.66669C10 5.56212 9.10457 4.66669 8 4.66669C6.89543 4.66669 6 5.56212 6 6.66669C6 7.77126 6.89543 8.66669 8 8.66669Z" stroke="#707683" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Lagos
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between items-start my-3">
+                                <p class="text-left text-sm text-ubuy-secondary flex-auto">
+                                    “Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed congue non nisi convallis viverra. Proin in nunc varius lorem mattis dictum. ”
+                                </p>
+                                <button class="rounded-llg text-white font-medium text-center bg-ubuy-blue px-5 py-2 whitespace-nowrap">
+                                    Contact Pro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-10 flex flow-row items-center justify-center">
+                    <a href="" class="text-center text-ubuy-blue flex flex-row items-center border border-ubuy-blue px-9 py-4 shadow-card" style="border-radius: 30px;">
+                        <span class="mr-4">See More</span>
+                        <span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="#119AE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="w-full bg-ubuy-blue900 text-white">
+        <div class="border-b border-white w-full py-4 sm:block hidden">
+            <div class="flex flex-row items-center wrapper mx-auto">
+                <img src="../../assets/images/logo.png" alt="ubuy logo" class="sm:mr-10" />
+                <div class="flex-1 flex flex-row items-center gap-x-4">
+                    <a href="">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.2969 2H15.2969C13.9708 2 12.699 2.52678 11.7613 3.46447C10.8237 4.40215 10.2969 5.67392 10.2969 7V10H7.29688V14H10.2969V22H14.2969V14H17.2969L18.2969 10H14.2969V7C14.2969 6.73478 14.4022 6.48043 14.5898 6.29289C14.7773 6.10536 15.0317 6 15.2969 6H18.2969V2Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M23.2969 2.9998C22.3393 3.67528 21.279 4.19191 20.1569 4.5298C19.5546 3.83731 18.7542 3.34649 17.8639 3.12373C16.9736 2.90096 16.0364 2.957 15.179 3.28426C14.3215 3.61151 13.5853 4.1942 13.0699 4.95352C12.5544 5.71283 12.2846 6.61214 12.2969 7.5298V8.5298C10.5395 8.57537 8.79815 8.18561 7.22788 7.39525C5.65762 6.60488 4.30719 5.43844 3.29688 3.9998C3.29688 3.9998 -0.703125 12.9998 8.29688 16.9998C6.2374 18.3978 3.78403 19.0987 1.29688 18.9998C10.2969 23.9998 21.2969 18.9998 21.2969 7.4998C21.296 7.22126 21.2692 6.9434 21.2169 6.6698C22.2375 5.6633 22.9577 4.39251 23.2969 2.9998Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="24" height="24" fill="white" transform="translate(0.296875)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <a href="">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.2969 2H7.29688C4.53545 2 2.29688 4.23858 2.29688 7V17C2.29688 19.7614 4.53545 22 7.29688 22H17.2969C20.0583 22 22.2969 19.7614 22.2969 17V7C22.2969 4.23858 20.0583 2 17.2969 2Z" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M16.2971 11.3698C16.4205 12.2021 16.2783 13.052 15.8908 13.7988C15.5033 14.5456 14.8902 15.1512 14.1387 15.5295C13.3872 15.9077 12.5355 16.0394 11.7049 15.9057C10.8742 15.7721 10.1068 15.3799 9.51191 14.785C8.91699 14.1901 8.5248 13.4227 8.39114 12.592C8.25747 11.7614 8.38914 10.9097 8.7674 10.1582C9.14566 9.40667 9.75126 8.79355 10.4981 8.40605C11.2449 8.01856 12.0948 7.8764 12.9271 7.99981C13.776 8.1257 14.5619 8.52128 15.1688 9.12812C15.7756 9.73496 16.1712 10.5209 16.2971 11.3698Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.7969 6.5H17.8069" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.2969 8C17.8882 8 19.4143 8.63214 20.5395 9.75736C21.6647 10.8826 22.2969 12.4087 22.2969 14V21H18.2969V14C18.2969 13.4696 18.0862 12.9609 17.7111 12.5858C17.336 12.2107 16.8273 12 16.2969 12C15.7664 12 15.2577 12.2107 14.8827 12.5858C14.5076 12.9609 14.2969 13.4696 14.2969 14V21H10.2969V14C10.2969 12.4087 10.929 10.8826 12.0542 9.75736C13.1795 8.63214 14.7056 8 16.2969 8V8Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6.29688 9H2.29688V21H6.29688V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4.29688 6C5.40144 6 6.29688 5.10457 6.29688 4C6.29688 2.89543 5.40144 2 4.29688 2C3.19231 2 2.29688 2.89543 2.29688 4C2.29688 5.10457 3.19231 6 4.29688 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M22.837 6.42C22.7182 5.94541 22.4762 5.51057 22.1356 5.15941C21.795 4.80824 21.3677 4.55318 20.897 4.42C19.177 4 12.297 4 12.297 4C12.297 4 5.41696 4 3.69696 4.46C3.22621 4.59318 2.79894 4.84824 2.45831 5.19941C2.11767 5.55057 1.87575 5.98541 1.75696 6.46C1.44217 8.20556 1.28819 9.97631 1.29696 11.75C1.28574 13.537 1.43973 15.3213 1.75696 17.08C1.88792 17.5398 2.13526 17.9581 2.4751 18.2945C2.81494 18.6308 3.23578 18.8738 3.69696 19C5.41696 19.46 12.297 19.46 12.297 19.46C12.297 19.46 19.177 19.46 20.897 19C21.3677 18.8668 21.795 18.6118 22.1356 18.2606C22.4762 17.9094 22.7182 17.4746 22.837 17C23.1493 15.2676 23.3033 13.5103 23.297 11.75C23.3082 9.96295 23.1542 8.1787 22.837 6.42V6.42Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M10.0469 15.02L15.7969 11.75L10.0469 8.47998V15.02Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="24" height="24" fill="white" transform="translate(0.296875)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <div class="flex flex-row">
+                        <a href="" class="flex flex-row items-center rounded-llg text-white px-4 py-1 mr-12 border border-ubuy-gray450" style="background-color :rgba(255, 255, 255, 0.1);">
+                            <span class="mr-2">
+                                <img src="../assets/images/playstore-icon.svg" />
+                            </span>
+                            <div class="flex flex-col">
+                                <span class="text-tiny">GET IT ON</span>
+                                <span class="md:text-base text-sm font-semibold">Google Play</span>
+                            </div>
+                        </a>
+                        <a href="" class="flex flex-row items-center rounded-llg bg-ubuy-black text-white px-4 py-1 border border-ubuy-gray450" style="background-color :rgba(255, 255, 255, 0.1);">
+                            <span class="mr-2">
+                                <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.2783 12.8237C16.2783 9.81205 18.8042 8.35481 18.9013 8.25766C17.4441 6.21751 15.3068 5.92607 14.5296 5.82892C12.6837 5.63462 10.8379 6.89756 9.96354 6.89756C8.99205 6.89756 7.5348 5.82892 5.9804 5.82892C3.94026 5.82892 2.09442 6.99471 1.02577 8.84056C-1.11152 12.5322 0.442872 17.9726 2.48302 20.9843C3.55166 22.4415 4.71746 24.0931 6.27186 23.9959C7.82625 23.8988 8.40915 23.0244 10.255 23.0244C12.1008 23.0244 12.5866 23.9959 14.2381 23.9959C15.8897 23.9959 16.9583 22.5387 17.9298 21.0814C19.0956 19.4299 19.5814 17.7783 19.5814 17.6812C19.4842 17.584 16.2783 16.4182 16.2783 12.8237Z"
+                                        fill="white" />
+                                    <path d="M13.2668 3.88599C14.044 2.81734 14.6269 1.45725 14.5297 0C13.3639 0.0971497 11.8095 0.777198 11.0323 1.84584C10.2551 2.72019 9.57508 4.17744 9.76938 5.53753C11.0323 5.63468 12.3924 4.85749 13.2668 3.88599Z" fill="white" />
+                                </svg>
+                            </span>
+                            <div class="flex flex-col">
+                                <span class="text-tiny">Download on the </span>
+                                <span class="md:text-base text-sm font-semibold">App Store</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Nav mobile -->
+        <div class="sm:hidden flex flex-col w-full mobile-footer text-white">
+            <details class="w-full">
+                <summary class="border-b wrapper mx-auto py-2">
+                    Company
+                </summary>
+                <div>
+                    <ul class="grid grid-cols-1 gap-y-5 items-start">
+                        <li>
+                            <a href="">About Us</a>
+                        </li>
+                        <li>
+                            <a href="">Careers</a>
+                        </li>
+                        <li>
+                            <a href="">Contacts</a>
+                        </li>
+                        <li>
+                            <a href="">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="">Terms of Use</a>
+                        </li>
+                        <li>
+                            <a href="">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="w-full">
+                <summary class="border-b wrapper mx-auto py-2">
+                    Customers
+                </summary>
+                <div>
+                    <ul class="grid grid-cols-1 gap-y-5 items-start">
+                        <li>
+                            <a href="">Categories</a>
+                        </li>
+                        <li>
+                            <a href="">U-Assistant</a>
+                        </li>
+                        <li>
+                            <a href="">Login / Sign Up</a>
+                        </li>
+                        <li>
+                            <a href="">Hiring, How it works</a>
+                        </li>
+                        <li>
+                            <a href="">Popular projects</a>
+                        </li>
+                        <li>
+                            <a href="">Get Customer App</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="w-full">
+                <summary class="border-b wrapper mx-auto py-2">
+                    Professionals
+                </summary>
+                <div>
+                    <ul class="grid grid-cols-1 gap-y-5 items-start">
+                        <li>
+                            <a href="">Categories</a>
+                        </li>
+                        <li>
+                            <a href="">U-Assistant</a>
+                        </li>
+                        <li>
+                            <a href="">Login / Sign Up</a>
+                        </li>
+                        <li>
+                            <a href="">Hiring, How it works</a>
+                        </li>
+                        <li>
+                            <a href="">Popular projects</a>
+                        </li>
+                        <li>
+                            <a href="">Get Customer App</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="w-full">
+                <summary class="border-b wrapper mx-auto py-2">
+                    Company
+                </summary>
+                <div>
+                    <ul class="grid grid-cols-1 gap-y-5 items-start">
+                        <li>
+                            <a href="">Pro Guidlines</a>
+                        </li>
+                        <li>
+                            <a href="">How to get Job</a>
+                        </li>
+                        <li>
+                            <a href="">Login / Become a Pro</a>
+                        </li>
+                        <li>
+                            <a href="">Success Stories</a>
+                        </li>
+                        <li>
+                            <a href="">Get Pro App</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="w-full">
+                <summary class="border-b wrapper mx-auto py-2">
+                    Resources
+                </summary>
+                <div>
+                    <ul class="grid grid-cols-1 gap-y-5 items-start">
+                        <li>
+                            <a href="">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="">Customer Support</a>
+                        </li>
+                        <li>
+                            <a href="">Safety Gudlines</a>
+                        </li>
+                        <li>
+                            <a href="">Testimonies</a>
+                        </li>
+                        <li>
+                            <a href="">Community Guidlines</a>
+                        </li>
+                        <li>
+                            <a href="">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <div class="border-b border-white w-full pt-4 pb-24">
+            <div class="wrapper mx-auto flex flex-col md:flex-row pb-1">
+                <!-- Nav Desktop and Tablet -->
+                <div class="sm:grid hidden grid-cols-4 gap-4 flex-2">
+                    <div class="flex flex-col">
+                        <h1 class="text-lg font-medium mb-5">Company</h1>
+                        <ul class="grid grid-cols-1 gap-y-5">
+                            <li>
+                                <a href="">About Us</a>
+                            </li>
+                            <li>
+                                <a href="">Careers</a>
+                            </li>
+                            <li>
+                                <a href="">Contacts</a>
+                            </li>
+                            <li>
+                                <a href="">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-lg font-medium mb-5">Customers</h1>
+                        <ul class="grid grid-cols-1 gap-y-5">
+                            <li>
+                                <a href="">Categories</a>
+                            </li>
+                            <li>
+                                <a href="">U-Assistant</a>
+                            </li>
+                            <li>
+                                <a href="">Login / Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="">Hiring, How it works</a>
+                            </li>
+                            <li>
+                                <a href="">Popular projects</a>
+                            </li>
+                            <li>
+                                <a href="">Get Customer App</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-lg font-medium mb-5">Professionals</h1>
+                        <ul class="grid grid-cols-1 gap-y-5">
+                            <li>
+                                <a href="">Pro Guidlines</a>
+                            </li>
+                            <li>
+                                <a href="">How to get Job</a>
+                            </li>
+                            <li>
+                                <a href="">Login / Become a Pro</a>
+                            </li>
+                            <li>
+                                <a href="">Success Stories</a>
+                            </li>
+                            <li>
+                                <a href="">Get Pro App</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-lg font-medium mb-5">Resources</h1>
+                        <ul class="grid grid-cols-1 gap-y-5">
+                            <li>
+                                <a href="">FAQs</a>
+                            </li>
+                            <li>
+                                <a href="">Customer Support</a>
+                            </li>
+                            <li>
+                                <a href="">Safety Gudlines</a>
+                            </li>
+                            <li>
+                                <a href="">Testimonies</a>
+                            </li>
+                            <li>
+                                <a href="">Community Guidlines</a>
+                            </li>
+                            <li>
+                                <a href="">Help</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex flex-col max-w-md flex-1 lg:min-w-xs mx-auto w-full text-center lg:text-left">
+                    <h4 class="lg:text-lg text-sm font-medium mb-5">Register and claim your reward!</h4>
+                    <h5 class="lg:mb-16 mb-8 text-xs md:text-base">Get 10% off on the first task you post!</h5>
+                    <div>
+                        <div class="bg-white relative rounded-llg py-3 px-5 w-full flex flex-row items-center mb-5">
+                            <label for="search" class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                                <button class="rounded bg-ubuy-blue p-2 shadow-card">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M21.0004 20.9999L16.6504 16.6499" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </label>
+                            <input class="py-2 px-3 w-full focus:outline-none" id="search" type="text" placeholder="Enter email address" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-row items-center justify-center py-8">
+            © 2020 Ubuy Services. All Rights Reserved.
+        </div>
+    </footer>
+</body>

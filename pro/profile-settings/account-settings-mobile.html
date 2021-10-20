@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Account Settings</title>
+    <meta content="width=device-width" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="../../assets/styles/tailwind.css" rel="stylesheet">
+    <link href="../../assets/styles/global.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    <div class="flex min-h-screen w-full">
+        <header class="flex fixed top-0 w-full h-20 bg-white shadow-card z-20 p-4 items-center">
+            <a href="./index.html">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 19L5 12L12 5" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <div class="flex-auto text-center text-ubuy-black text-lg">
+                Account Settings
+            </div>
+        </header>
+
+        <main class="w-full h-full">
+            <div class="flex flex-col items-center  justify-center px-4 bg-white w-full mt-36">
+                <div class="relative">
+                    <img src="../../assets/images/avatar.png" alt="avatar" class="rounded-full w-32 h-32" />
+                    <button class="absolute right-4 bottom-0">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="26" height="26" rx="13" fill="#119AE2" />
+                            <path d="M14.75 12.6875C13.7188 12.6875 12.875 13.5312 12.875 14.5625C12.875 15.5937 13.7188 16.4375 14.75 16.4375C15.7813 16.4375 16.625 15.5937 16.625 14.5625C16.625 13.5312 15.7813 12.6875 14.75 12.6875Z" fill="white" />
+                            <path
+                                d="M19.0625 10.8125H17.5625L16.3625 9.275C16.2875 9.18125 16.175 9.125 16.0625 9.125H13.4375C13.325 9.125 13.2125 9.18125 13.1375 9.275L11.9375 10.8125C11.9375 10.8125 11.3187 10.8125 10.8125 10.8125V10.4375C10.8125 10.2313 10.6437 10.0625 10.4375 10.0625H9.3125C9.10625 10.0625 8.9375 10.2313 8.9375 10.4375V10.8125C8.4125 10.8125 8 11.225 8 11.75V17.75C8 18.275 8.4125 18.6875 8.9375 18.6875H19.0625C19.5875 18.6875 20 18.275 20 17.75V11.75C20 11.225 19.5875 10.8125 19.0625 10.8125ZM14.75 17.5625C13.1 17.5625 11.75 16.2125 11.75 14.5625C11.75 12.9125 13.1 11.5625 14.75 11.5625C16.4 11.5625 17.75 12.9125 17.75 14.5625C17.75 16.2125 16.4 17.5625 14.75 17.5625Z"
+                                fill="white" />
+                            <rect x="1" y="1" width="26" height="26" rx="13" stroke="white" stroke-width="2" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-col gap-y-6 mb-8 w-full">
+                    <div class="flex flex-col w-full  mb-5">
+                        <label for="first-name" class="text-sm text-ubuy-secondary font-medium mb-2.5">First Name</label>
+                        <input type="text" name="first-name" id="first-name" placeholder="John" class="text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg" />
+                    </div>
+                    <div class="flex flex-col w-full xl:w-1/2">
+                        <label for="last-name" class="text-sm text-ubuy-secondary font-medium mb-2.5">Last Name</label>
+                        <input type="text" name="last-name" id="last-name" placeholder="Ayomide" class="text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg" />
+                    </div>
+
+                    <div class="flex flex-col w-full">
+                        <label for="phone" class="text-sm text-ubuy-secondary font-medium mb-2.5">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" placeholder="234 810 727 075" class="text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg" />
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label for="email" class="text-sm text-ubuy-secondary font-medium mb-2.5">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="John" class="text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg" />
+                    </div>
+
+                    <div class="flex flex-col w-full mb-5">
+                        <label for="about-me" class="text-sm text-ubuy-secondary font-medium mb-2.5">About Me</label>
+                        <textarea name="about-me" id="about-me" rows="8" class="resize-none text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg"></textarea>
+                    </div>
+
+                    <div class="flex flex-col w-full">
+                        <label for="location" class="text-sm text-ubuy-secondary font-medium mb-2.5">Location</label>
+                        <select name="location" id="location" class="text-sm text-ubuy-secondary py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg appearance-none">
+                            <option value="lagos">Lagos</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col w-full ">
+                        <label for="num-employee" class="text-sm text-ubuy-secondary font-medium mb-2.5">Number of Employees</label>
+                        <input type="text" name="num-employee" id="num-employee" class="text-sm py-3.5 px-5 border border-ubuy-gray200 bg-ubuy-gray400 rounded-llg" />
+                    </div>
+                </div>
+
+                <div class="mt-8 self-start">
+                    <button class="text-sm text-white rounded-lg bg-ubuy-blue py-4 px-5 font-semibold shadow-card">
+                        Update
+                    </button>
+                </div>
+            </div>
+        </main>
+
+
+    </div>
+
+    <script src="../../assets/js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

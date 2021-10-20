@@ -1,0 +1,33 @@
+.comment-sender {
+    background: rgba(17, 154, 226, 0.05);
+}
+
+.comment-receiver {
+    background: #C4C4C4;
+}
+
+.comment-sender::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid rgba(17, 154, 226, 0.05);
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid rgba(17, 154, 226, 0.05);
+    top: 0;
+    left: -16px;
+}
+
+.comment-receiver::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #C4C4C4;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #C4C4C4;
+    border-right: 8px solid transparent;
+    top: 0;
+    right: -10px;
+}

@@ -1,0 +1,19 @@
+.coupon-progress {
+    height: 5px;
+}
+
+.coupon-progress::-webkit-progress-bar {
+    height: 5px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F9F9FA;
+}
+
+.coupon-progress::-webkit-progress-value {
+    display: inline-block;
+    float: left;
+    height: 5px;
+    padding-left: 50px;
+    background: var(--ubuy-blue);
+    border-radius: 100px;
+}

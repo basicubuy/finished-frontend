@@ -1,0 +1,43 @@
+
+.active-task-icon-wrapper {
+    background-color: rgba(86, 204, 242, 0.3);
+    color: var(--ubuy-blue-300);
+}
+
+.completed-task-icon-wrapper {
+    background-color: rgba(64, 221, 127, 0.3);
+    color: var(--ubuy-green-200);
+}
+
+.active-bid-icon-wrapper {
+    background-color: rgba(187, 107, 217, 0.3);
+    color: var(--ubuy-purple-200);
+}
+
+.ratings-icon-wrapper {
+    background-color: rgba(255, 188, 31, 0.3);
+    color: var(--ubuy-yellow-200);
+}
+
+.completed-task:hover {
+    border: 1px solid var(--ubuy-green-200);
+}
+
+.active-task:hover {
+    border: 1px solid var(--ubuy-blue-300);
+}
+
+.active-bid:hover {
+    border: 1px solid var(--ubuy-purple-200);
+}
+
+.ratings:hover {
+    border: 1px solid var(--ubuy-yellow-200);
+}
+
+.recent-task-table tbody tr:hover {
+    background-color: var(--ubuy-gray-400);
+}
+
+
+

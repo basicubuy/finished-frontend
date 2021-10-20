@@ -1,0 +1,116 @@
+.hero-section {
+    background: linear-gradient(180deg, rgba(241, 249, 253, 0) 0%, #F1F9FD 100%);
+}
+
+.hero-section::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3%;
+    right: 0;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/shape-bg-hero-home.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.cursor::after {
+    content: '';
+    display: inline-block;
+    margin-left: 3px;
+    background-color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+h1.cursor::after {
+    height: 24px;
+    width: 13px;
+}
+
+p.cursor::after {
+    height: 13px;
+    width: 6px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#pattern-top,
+#pattern-bottom {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 258px;
+    background-size: 20px 20px;
+    background-repeat: repeat;
+    z-index: -1;
+    opacity: .2;
+    background-image: url('../../assets/images/blue-dot.png');
+}
+
+#pattern-top {
+    top: -84px;
+    left: 140px;
+}
+
+#pattern-bottom {
+    bottom: 26px;
+    left: 35px;
+}
+
+.review-sample-hero {
+    width: 280px;
+    height: 160px;
+    left: 70px;
+    bottom: 100px;
+    box-shadow: 0px 0px 100px rgba(17, 154, 226, 0.1);
+    border-radius: 30px 5px 30px 30px;
+}
+
+.ratings {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    color: transparent;
+    overflow: hidden;
+}
+
+.full-stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #FBB034;
+}
+
+.empty-stars:before,
+.full-stars:before {
+    content: "\2605\2605\2605\2605\2605";
+    letter-spacing: 10px;
+}
+
+.empty-stars:before {
+    -webkit-text-stroke: 1px #c4c4c4;
+}
+
+.full-stars:before {
+    -webkit-text-stroke: 1px transparent;
+}

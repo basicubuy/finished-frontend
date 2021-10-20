@@ -1,0 +1,98 @@
+body, html {
+    height: 100%;
+}
+.text-44px {
+    font-size: 44px;
+}
+
+#password-label::after,
+#email-label::after {
+    content: '';
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 18px;
+    right: 22px;
+}
+
+#email-label::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z' stroke='%23A0A4A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22 6L12 13L2 6' stroke='%23A0A4A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}
+
+#password-label::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6667 7.33333H3.33333C2.59695 7.33333 2 7.93028 2 8.66666V13.3333C2 14.0697 2.59695 14.6667 3.33333 14.6667H12.6667C13.403 14.6667 14 14.0697 14 13.3333V8.66666C14 7.93028 13.403 7.33333 12.6667 7.33333Z' stroke='%23A0A4A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.66675 7.33333V4.66666C4.66675 3.78261 5.01794 2.93476 5.64306 2.30964C6.26818 1.68452 7.11603 1.33333 8.00008 1.33333C8.88414 1.33333 9.73198 1.68452 10.3571 2.30964C10.9822 2.93476 11.3334 3.78261 11.3334 4.66666V7.33333' stroke='%23A0A4A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+    height: 16px;
+    width: 16px;
+    right: 27px;
+}
+
+.google-btn {
+    background: #F1F9FD;
+    border: 1px solid #3C79E6;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.facebook-btn {
+    background: #F1F9FD;
+    border: 1px solid #2F80ED;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.review-wrapper::before,
+.review-wrapper::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-image: url('../assets/images/dot-pattern.png');
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 190px;
+    z-index: 0;
+}
+
+.review-wrapper::before {
+    left: -80px;
+    top: -80px;
+
+}
+
+.review-wrapper::after {
+    right: -80px;
+    bottom: -80px;
+
+}
+
+.review-item {
+    border-radius: 5px 20px 20px 20px;
+}
+
+#toggle-customer-form.active,
+#toggle-pro-form.active {
+    background-color: #119ae2;
+    color: #fff;
+}
+
+#toggle-customer-form.inactive,
+#toggle-pro-form.inactive {
+    background-color: #fff;
+    color: #A0A4A8;
+}
+
+#service-label::after,
+#state-label::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A0A4A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E ");
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Task Step 1</title>
+
+    <link href="../../assets/styles/tailwind.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/styles/tailwind.css">
+    <link rel="stylesheet" href="./task-form-style.css">
+</head>
+<body class="grid place-items-center h-screen">
+    <div class="ubuy-post-task-form-container hidden flex-col rounded-3xl shadow bg-white" id="post-task-form-1">
+        <header class="w-full flex flex-col relative ">
+            <div class="w-full flex flex-row items-center justify-center py-7">
+                <h1 class="text-lg font-bold text-center mx-12">Tell us what you want done</h1>
+                <button class="absolute right-6" onclick="closeSubmitTaskForm()">
+                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="#25282B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                        <path d="M6 6L18 18" stroke="#25282B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                    </svg>
+                </button>
+            </div>
+            <progress class="w-full text-ubuy-blue task-form-progress" max="100" value="32"></progress>
+        </header>
+        <div class="py-14 px-10 flex-grow flex flex-col">
+            <div class="flex flex-col mb-10">
+                <label class="text-lg font-medium inline-block mb-2.5" for="task-name">Task title</label>
+                <input class="w-full border rounded-md py-3 px-5 text-sm task-form-input" id="task-name" placeholder="choose a name fo your task." />
+            </div>
+            <div class="flex flex-col">
+                <label class="text-lg font-medium inline-block mb-2.5" for="task-details">Task Details</label>
+                <textarea class="w-full task-form-input border rounded-md p-5 resize-none text-sm h-36" id="task-details" placeholder="Tell us more about your project"></textarea>
+            </div>
+            <div class="flex flex-col h-full items-center justify-end">
+                <button onclick="onNext(0, 1)" class="rounded-lg text-white px-5 py-2 bg-ubuy-blue w-40 h-12 font-semibold">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

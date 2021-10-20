@@ -1,0 +1,67 @@
+.ubuy-post-task-form-container {
+    max-width: 700px;
+    max-height: 700px;
+    color: var(--ubuy-balck);
+    width: 100%;
+    height: 100%;
+}
+
+.task-form-input {
+    border: 1px solid #E5E5E5;
+    background: #F9F9FA;
+}
+
+.task-form-select-with-double-arrow {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAwUlEQVRIDe2SQQqDMBBFPcpsIp+48SjqJgEr9OZzFEtqP01ThbTMplRBBsbhvck3TXM+VgkAvbTo1KFTQS9W3Dsng68OXXrtJK9wry18OoWNpIQLIADERLIHZ+4mkscPXR28ps0JZy0l7FfXLYZ9OCFPiVf2zvpDCUxh0TEsOsTr2w3iMdI3zrFXXacw6xQu65GE8G1m/vwWDTHKkaSEp9nqzfPBPYkZnKJSkjJnLF9vTjhrLjGHl5IxzGq2OeH/XW/uH4+D/L/CkAAAAABJRU5ErkJggg==');
+    background-position: calc(100% - 1rem), 100% 0;
+    background-size:  1.5em 1.5em;
+    background-repeat: no-repeat;
+}
+
+.task-form-select-with-single-arrow {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAgElEQVRIDe2RQQrAIAwEfYpPUi8RUqE/z1NaRBaCWKXUU4mXhLjO6uqcLUvAEhgmkKhIpCIhn34oUMOqgV6N520ilkTHtTIBvGlZ5lS1G3L2K5MeXs8oxLqdmXyGw35ksg3+ZFI/FJm/jgXQvuqXbIfDDCaRWLbdHHCrlsDPE7gBfwlmI9h7aqwAAAAASUVORK5CYII=');
+    background-position: calc(100% - 1rem), 100% 0;
+    background-size:  1.5em 1.5em;
+    background-repeat: no-repeat;
+}
+
+.task-form-date-icon {
+    border-right: 1px solid #323C47;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    background: #F9F9FA;
+}
+
+select.task-form-select-with-double-arrow:focus {
+    border-color: var(--ubuy-blue);
+    outline: 0;
+}
+
+/*Progress bar style*/
+.task-form-progress {
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin: 0;
+    background: none;
+    border: 0;
+    position: relative;
+}
+
+progress::-webkit-progress-bar {
+    height: 5px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F9F9FA;
+}
+
+progress::-webkit-progress-value {
+    display: inline-block;
+    float: left;
+    height: 5px;
+    padding-left: 50px;
+    background: var(--ubuy-blue);
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
